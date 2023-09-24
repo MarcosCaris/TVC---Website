@@ -101,10 +101,13 @@ body {
 	color: aliceblue;
 }
 .sorteo__titulo {
-	margin-top: 5vh;
-	height: 5vh;
-	width: 50vh;
+	height: 10vh;
+	width: 100%;
 	text-align: center;
+	background-color: rgba(0, 0, 0, 0.205);
+}
+.sorteo__titulo h1 {
+	margin-top: 2.5vh;
 }
 .servidores__titulo {
 	font-weight: 400;
