@@ -13,6 +13,7 @@ body {
 	position: sticky;
 	width: 100%;
 	top: 0;
+	z-index: 3000;
 }
 
 .navbar {
@@ -22,7 +23,7 @@ body {
 	justify-content: space-evenly;
 	align-items: center;
 	background-color: rgb(255, 255, 255);
-	z-index: 2000;
+	z-index: 3000;
 }
 .tvc_icon {
 	margin-top: 6.5vh;
@@ -89,152 +90,12 @@ body {
 	font-family: 'Vinila Test', sans-serif;
 	font-weight: bold;
 }
-.sorteos__base {
-	height: 80vh;
-	background-color: #272731;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-direction: column;
-	font-family: 'Vinila Test', sans-serif;
-	color: aliceblue;
-}
-.sorteo__titulo {
-	height: 10vh;
-	width: 100%;
-	text-align: center;
-	background-color: rgba(0, 0, 0, 0.205);
-}
-.sorteo__titulo h1 {
-	margin-top: 2.8vh;
-}
-.servidores__titulo {
-	font-weight: 400;
-}
-.servidores {
-	display: flex;
-	align-items: end;
-	justify-content: space-evenly;
-	flex-direction: row;
-	width: 100%;
-	height: 45vh;
-}
-.servidor-boton {
-	height: 6.8vh;
-	width: 27vh;
-	font-size: 2.2vh;
-	background-color: rgb(255, 255, 255);
-	border: none;
-	font-weight: 500;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-}
-.boton__sorteo a {
-	text-decoration: none;
-	font-size: 3vh;
-	font-family: 'Vinila Test', sans-serif;
-	color: aliceblue;
-	font-weight: 600;
-}
-.boton__sorteo__container {
-	height: 30vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.boton__sorteo {
-	border: 3px solid white;
-	border-radius: 5px;
-	height: 10vh;
-	width: 35vh;
-	background-image: url(../imagenes/valorant\ texture.png);
-	background-size: cover;
-	cursor: pointer;
-}
-.ganador {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 17vh;
-}
-.ganador__vacio {
-	height: 8vh;
-	width: 30vh;
-	background-color: rgba(5, 5, 5, 0.363);
-	margin-bottom: 4.2vh;
-	border-radius: 5px;
-	border: white solid 2px;
-}
-.card {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-direction: column;
-	width: 27vh;
-	height: 36vh;
-	font-family: 'Vinila Test', sans-serif;
-	color: aliceblue;
-	cursor: pointer;
-	background-color: rgba(255, 255, 255, 0.164);
-	border: 3px solid white;
-	border-radius: 10px;
-}
-.card img {
-	width: 75%;
-	padding-top: 1vh;
-}
-.sorteo__container {
-	display: flex;
-	justify-content: space-evenly;
-	flex-direction: row;
-	align-items: center;
-	width: 100%;
-}
-.banner__cartas {
-	width: 100%;
-	height: 50vh;
-	background-position: 0vh -10vh;
-	background-image: url(../imagenes/2.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.picker {
-	height: 42vh;
-	background-color: #272731;
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	align-items: center;
-	flex-direction: row;
-}
-.Explicacion__titulos {
-	font-family: 'Vinila Test', sans-serif;
-	color: aliceblue;
-	text-align: start;
-	padding: 1vh;
-	width: 40%;
-	margin-left: 10vh;
-}
-.Explicacion__titulos h3 {
-	font-size: 4vh;
-	margin-bottom: 2vh;
-}
-.Explicacion__titulos p {
-	font-size: 2.3vh;
-}
-.imagen__carta__ejemplo {
-	width: 40%;
-}
-
-/*PRUEBA*/
 
 .separador_test {
 	height: 100vh;
 }
 .main__container {
-	height: 100vh;
+	height: 95vh;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -410,4 +271,80 @@ body {
 	line-height: 2.7vh;
 	padding-top: 2vh;
 	color: rgb(212, 212, 212);
+}
+
+.glass__server__card {
+	width: 25.5vh;
+	height: 36vh;
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border-radius: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.server__card__container {
+	width: 100%;
+	height: 45vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.glass__server__card img {
+	width: 18vh;
+	padding-top: 1.4vh;
+	margin-top: 2vh;
+}
+.servidor-boton {
+	height: 6.3vh;
+	margin-top: 3.7vh;
+	width: 25.5vh;
+	font-size: 2.2vh;
+	background-color: rgb(255, 255, 255);
+	border: none;
+	font-weight: 500;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.dizzy {
+	position: absolute;
+	top: 109.5vh;
+	right: 5vh;
+	z-index: -2;
+	transform: scaleX(-1);
+	rotate: -10deg;
+}
+.dizzy img {
+	width: 23.5vh;
+}
+.servidores__titulo {
+	width: 40%;
+	height: 14vh;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: space-evenly;
+	color: aliceblue;
+	font-family: 'Vinila Test', sans-serif;
+	margin-left: 12vh;
+	margin-bottom: 2vh;
+}
+.servidores__titulo h3 {
+	font-size: 3.2vh;
+}
+.servidores__titulo p {
+	font-size: 2vh;
+	color: rgb(212, 212, 212);
+}
+.texto__seleccion {
+	margin-top: 1vh;
+	text-align: center;
+	color: rgb(212, 212, 212);
+	font-family: 'Vinila Test', sans-serif;
+	font-size: 2vh;
 }
