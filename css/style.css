@@ -10,10 +10,12 @@ body {
 .nav {
 	display: flex;
 	flex-direction: column;
-	position: sticky;
 	width: 100%;
+}
+header {
+	position: sticky;
+	z-index: 50000;
 	top: 0;
-	z-index: 3000;
 }
 
 .navbar {
@@ -91,9 +93,6 @@ body {
 	font-weight: bold;
 }
 
-.separador_test {
-	height: 100vh;
-}
 .main__container {
 	height: 95vh;
 	width: 100%;
@@ -286,6 +285,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
+	cursor: pointer;
 }
 .server__card__container {
 	width: 100%;
@@ -294,6 +294,15 @@ body {
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
+}
+.glass__server__card:hover {
+	background-color: rgba(201, 201, 201, 0.185);
+}
+.glass__server__card.selected {
+	background-color: rgba(43, 255, 0, 0.356);
+}
+.glass__server__card.chosen {
+	background-color: #ec7a2ee0; /* Change this color to your desired chosen color */
 }
 .glass__server__card img {
 	width: 18vh;
@@ -321,6 +330,7 @@ body {
 }
 .dizzy img {
 	width: 23.5vh;
+	filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.26));
 }
 .servidores__titulo {
 	width: 40%;
@@ -347,4 +357,116 @@ body {
 	color: rgb(212, 212, 212);
 	font-family: 'Vinila Test', sans-serif;
 	font-size: 2vh;
+}
+.spyke__imagen {
+	position: absolute;
+	left: 20vh;
+}
+.spyke__imagen img {
+	width: 20vh;
+	rotate: -2deg;
+}
+.buscar__container {
+	background-color: #352c2a;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 20vh;
+	margin-top: 5vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: row;
+}
+.buscar__boton {
+	display: flex;
+	height: 10vh;
+	align-items: center;
+	justify-content: center;
+}
+.reiniciar {
+	display: flex;
+	height: 10vh;
+	align-items: center;
+	justify-content: center;
+}
+.reiniciar button {
+	width: 28vh;
+	height: 5vh;
+	background-color: rgb(202, 75, 25);
+	color: aliceblue;
+	font-family: 'Vinila Test', sans-serif;
+	font-size: 1.8vh;
+	font-weight: 500;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+}
+.buscar__boton button {
+	width: 28vh;
+	height: 5vh;
+	background-color: rgb(202, 75, 25);
+	color: aliceblue;
+	font-family: 'Vinila Test', sans-serif;
+	font-size: 1.8vh;
+	font-weight: 500;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+}
+.buscar__texto {
+	width: 25%;
+	color: rgb(212, 212, 212);
+	font-family: 'Vinila Test', sans-serif;
+	text-align: center;
+	font-size: 2vh;
+}
+.buscar__resultado {
+	width: 25%;
+	color: rgb(212, 212, 212);
+	font-family: 'Vinila Test', sans-serif;
+	text-align: center;
+	font-size: 2vh;
+}
+.cartas__seccion {
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+}
+.cartas__izquierda__poderes {
+	width: 50%;
+	height: 100%;
+}
+.cartas__derecha__poderes {
+	width: 50%;
+	height: 100%;
+}
+.cartas__texto {
+	font-family: 'Vinila Test', sans-serif;
+	height: 30vh;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	justify-content: space-evenly;
+	text-align: end;
+	padding-right: 10vh;
+	padding-top: 15vh;
+}
+.cartas__texto h3 {
+	font-size: 5vh;
+	color: white;
+	margin-bottom: 5vh;
+}
+.cartas__texto p {
+	font-size: 2.2vh;
+	color: rgb(212, 212, 212);
+}
+.oculto {
+	opacity: 0;
+	transform: translateY(5vh);
+	transition: opacity 1.2s ease, transform 1.4s ease;
+}
+.mostrar {
+	opacity: 1;
+	transform: translateY(0);
 }

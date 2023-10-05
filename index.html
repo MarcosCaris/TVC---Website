@@ -42,6 +42,8 @@
 					</div>
 				</div>
 			</nav>
+		</header>
+		<main>
 			<div class="main__container">
 				<div class="contenedor__izquierda">
 					<div class="titulos__izquierda">
@@ -84,46 +86,54 @@
 			<div class="">
 				<div class="servidores__titulo">
 					<h3>Seleccion de Servidores</h3>
-					<p>A continuacion seleccione los servidores que desea utilizar en el sorteo de servidores y luego presione el boton de sortear.</p>
+					<p>
+						A continuacion seleccione los servidores que desea utilizar en el sorteo de servidores y luego presione el boton de "Buscar Servidor".
+					</p>
 				</div>
 				<div class="server__card__container">
-					<div class="glass__server__card">
+					<div class="glass__server__card oculto" onclick="toggleCard(this)">
 						<img src="./imagenes/Santiago.png" alt="" />
 						<button class="servidor-boton">SANTIAGO</button>
 					</div>
-					<div class="glass__server__card">
+					<div class="glass__server__card oculto" onclick="toggleCard(this)">
 						<img src="./imagenes/Chicago.png" alt="" />
 						<button class="servidor-boton">CHICAGO</button>
 					</div>
-					<div class="glass__server__card">
+					<div class="glass__server__card oculto" onclick="toggleCard(this)">
 						<img src="./imagenes/Miami.png" alt="" />
 						<button class="servidor-boton">MIAMI</button>
 					</div>
-					<div class="glass__server__card">
+					<div class="glass__server__card oculto" onclick="toggleCard(this)">
 						<img src="./imagenes/Bogota.png" alt="" />
 						<button class="servidor-boton">BOGOTA</button>
 					</div>
-					<div class="glass__server__card">
+					<div class="glass__server__card oculto" onclick="toggleCard(this)">
 						<img src="./imagenes/CD-Mexico.png" alt="" />
 						<button class="servidor-boton">CD MEXICO</button>
 					</div>
 				</div>
 				<div class="dizzy">
-					<img src="./imagenes/Dyzzy.png" alt="" >
+					<img src="./imagenes/Dyzzy.png" alt="" />
 				</div>
 			</div>
-			<div class="texto__seleccion">Seleccione las regiones de los Participantes.</div>
-			<div class="separador_test"></div>
-		</header>
-		<main>
-				<div class="Explicacion__titulos">
-					<h3>Sistema Cartas</h3>
-					<p>
-						Este torneo cuenta con cartas interactivas que pueden ser utilizadas por los equipos para cambiar el curso de las partidas. Cada una tiene
-						un uso especial y pueden ser seleccionadas debajo, sin saber cual les tocara.
-					</p>
+			<div class="texto__seleccion">La region que se vuelva color naranja sera el ganador.</div>
+			<div class="buscar__container">
+				<div class="buscar__boton"><button onclick="elegirCartaRandom()">Buscar Servidor</button></div>
+				<div class="reiniciar"><button onclick="reiniciarSorteo()">Reiniciar</button></div>
+			</div>
+			<div class="cartas__seccion">
+				<div class="cartas__izquierda__poderes"></div>
+				<div class="cartas__derecha__poderes">
+					<div class="cartas__texto">
+						<h3>Sistema Cartas</h3>
+						<p>
+							Este torneo cuenta con cartas interactivas que pueden ser utilizadas por los equipos para cambiar el curso de las partidas. Cada una
+							tiene un uso especial y pueden ser seleccionadas debajo, sin saber cual les tocara.
+						</p>
+					</div>
 				</div>
 			</div>
 		</main>
+		<script src="./js/app.js"></script>
 	</body>
 </html>
