@@ -41,7 +41,6 @@ if (objToRender === 'card') {
 	controls = new OrbitControls(camera, renderer.domElement);
 	controls.enableZoom = false;
 	controls.enablePan = false;
-	controls.target.set(5, 0, 5);
 }
 const fixedWidth = 800;
 const fixedHeight = 600;
