@@ -434,10 +434,12 @@ header {
 	height: 100vh;
 	display: flex;
 	flex-direction: row;
+	background-image: linear-gradient(40deg, #312827, #130f0f);
 }
 .cartas__izquierda__poderes {
 	width: 50%;
 	height: 100%;
+	margin-left: 10vh;
 }
 .cartas__derecha__poderes {
 	width: 50%;
@@ -455,13 +457,14 @@ header {
 	padding-top: 15vh;
 }
 .cartas__texto h3 {
-	font-size: 5vh;
+	font-size: 5.5vh;
 	color: white;
 	margin-bottom: 5vh;
 }
 .cartas__texto p {
 	font-size: 2.2vh;
 	color: rgb(212, 212, 212);
+	padding-left: 5vh;
 }
 .oculto {
 	opacity: 0;
@@ -475,5 +478,7 @@ header {
 #container3D {
 	height: 70vh;
 	width: 100%;
+	cursor: pointer;
 	z-index: 20000;
+	margin-left: 0;
 }

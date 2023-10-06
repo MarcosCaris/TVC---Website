@@ -9,7 +9,7 @@ var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 let object;
 
 let controls;
-
+let controlsActive = false;
 let objToRender = 'card';
 const loader = new GLTFLoader();
 
@@ -35,15 +35,29 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 document.getElementById('container3D').appendChild(renderer.domElement);
 
-camera.position.z = objToRender === 'card' ? 5 : 500;
+camera.position.z = objToRender === 'card' ? 470 : 500;
 
 if (objToRender === 'card') {
 	controls = new OrbitControls(camera, renderer.domElement);
 	controls.enableZoom = false;
 	controls.enablePan = false;
+	// Detect when controls are being used
+	controls.addEventListener('start', function () {
+		controlsActive = true;
+	});
+
+	// Detect when controls stop being used
+	controls.addEventListener('end', function () {
+		controlsActive = false;
+	});
+
+	controls.addEventListener('change', function () {
+		// Update is required after changes
+		renderer.render(scene, camera);
+	});
 }
-const fixedWidth = 800;
-const fixedHeight = 600;
+const fixedWidth = 900;
+const fixedHeight = 700;
 
 // Set the initial size of the renderer
 renderer.setSize(fixedWidth, fixedHeight);
@@ -54,6 +68,16 @@ camera.updateProjectionMatrix();
 
 function animate() {
 	requestAnimationFrame(animate);
+	if (!controlsActive) {
+		// Rotate the object (adjust the rotation speed as needed)
+		if (object) {
+			object.rotation.y += 0.004; // You can adjust the rotation speed here
+		}
+	}
+	// Ensure that controls are updated
+	if (controls) {
+		controls.update();
+	}
 	// Ensure that controls are updated
 	renderer.render(scene, camera);
 }
