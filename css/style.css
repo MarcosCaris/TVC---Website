@@ -194,6 +194,7 @@ header {
 	margin-bottom: 2vh;
 	font-family: 'Vinila Test', sans-serif;
 	display: flex;
+	cursor: pointer;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
@@ -212,6 +213,7 @@ header {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	cursor: pointer;
 	padding-left: 2vh;
 	padding-right: 2vh;
 	background-color: rgb(98, 61, 231);
@@ -469,4 +471,9 @@ header {
 .mostrar {
 	opacity: 1;
 	transform: translateY(0);
+}
+#container3D {
+	height: 70vh;
+	width: 100%;
+	z-index: 20000;
 }

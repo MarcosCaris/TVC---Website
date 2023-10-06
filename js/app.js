@@ -65,3 +65,16 @@ let observador = new IntersectionObserver((entries) => {
 
 let cartasAnimacion = document.querySelectorAll('.oculto');
 cartasAnimacion.forEach((el) => observador.observe(el));
+
+function ScrollToServidores() {
+	const targetSection = document.getElementById('tp__servidores');
+	const sectionStart = targetSection.offsetTop;
+
+	// Adjust the scroll position to be a little higher, e.g., subtracting 20 pixels
+	const scrollPosition = sectionStart - 310;
+
+	window.scrollTo({
+		top: scrollPosition,
+		behavior: 'smooth',
+	});
+}

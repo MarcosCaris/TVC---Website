@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chippity Chop Card
+* source:	https://sketchfab.com/3d-models/chippity-chop-card-04ed16d9ac2f43d29c836b9f273654dd
+* author:	ArtGuyStanley (https://sketchfab.com/artguystanley)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chippity Chop Card" (https://sketchfab.com/3d-models/chippity-chop-card-04ed16d9ac2f43d29c836b9f273654dd) by ArtGuyStanley (https://sketchfab.com/artguystanley) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

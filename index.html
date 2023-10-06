@@ -34,8 +34,8 @@
 				</div>
 				<div class="reposition">
 					<div class="positions">
-						<p>Servidores</p>
-						<p>Cartas</p>
+						<p onclick="ScrollToServidores()">Servidores</p>
+						<p onclick="ScrollToCartas()">Cartas</p>
 					</div>
 					<div class="stream">
 						<button class="button__stream"><a href="https://www.twitch.tv/jisusrun">STREAM</a></button>
@@ -58,12 +58,16 @@
 							<p class="carta__main__explicacion__servidores">
 								Los servidores seran seleccionados debajo de forma aleatoria entre los equipos enfrentados.
 							</p>
-							<button class="carta__main__boton__servidor">Tu servidor <img src="./imagenes/flecha.png" alt="" width="30px" /></button>
+							<button class="carta__main__boton__servidor" onclick="ScrollToServidores()">
+								Tu servidor <img src="./imagenes/flecha.png" alt="" width="30px" />
+							</button>
 						</div>
 						<div class="poderes__carta">
 							<h3 class="carta__main__titulo">Seleccion de las cartas de las Partidas</h3>
 							<p class="carta__main__explicacion">Las cartas seran seleccionadas debajo por los jugadores sin saber cual estan eligiendo.</p>
-							<button class="carta__main__boton__cartas">Tus cartas <img src="./imagenes/flecha.png" alt="" width="30px" /></button>
+							<button class="carta__main__boton__cartas" onclick="ScrollToCartas()">
+								Tus cartas <img src="./imagenes/flecha.png" alt="" width="30px" />
+							</button>
 						</div>
 					</div>
 				</div>
@@ -90,7 +94,7 @@
 						A continuacion seleccione los servidores que desea utilizar en el sorteo de servidores y luego presione el boton de "Buscar Servidor".
 					</p>
 				</div>
-				<div class="server__card__container">
+				<div id="tp__servidores" class="server__card__container">
 					<div class="glass__server__card oculto" onclick="toggleCard(this)">
 						<img src="./imagenes/Santiago.png" alt="" />
 						<button class="servidor-boton">SANTIAGO</button>
@@ -122,7 +126,9 @@
 				<div class="reiniciar"><button onclick="reiniciarSorteo()">Reiniciar</button></div>
 			</div>
 			<div class="cartas__seccion">
-				<div class="cartas__izquierda__poderes"></div>
+				<div class="cartas__izquierda__poderes">
+					<div id="container3D"></div>
+				</div>
 				<div class="cartas__derecha__poderes">
 					<div class="cartas__texto">
 						<h3>Sistema Cartas</h3>
@@ -135,5 +141,6 @@
 			</div>
 		</main>
 		<script src="./js/app.js"></script>
+		<script type="module" src="./js/main.js"></script>
 	</body>
 </html>
