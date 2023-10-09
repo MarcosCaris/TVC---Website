@@ -147,70 +147,79 @@
 				<img src="./imagenes/flecha abajo.png" alt="" width="170px" />
 			</div>
 			<div class="mejoras__seleccion__container">
-				<div class="background__fix"></div>
 				<div class="titulo__mejoras"><h3>Seleccion de Cartas</h3></div>
 				<div class="seleccion__subcontainer">
 					<div class="subtitulo__mejoras"><p>Seleccione una carta</p></div>
 					<div class="seleccion__completa">
 						<div class="ultima__carta">
 							<div class="ultima__seleccion"><p>Ultima Carta Seleccionada</p></div>
-							<div class="ultima__seleccion__carta"></div>
+							<div id="ultima__seleccion__carta"></div>
 						</div>
 						<div class="container__total">
 							<div class="container__superior">
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card1">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card2">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card3">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card4">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card5">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
 							</div>
 							<div class="container__inferior">
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card6">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card7">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card8">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card9">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card10">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
 							</div>
 							<div class="container__final">
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card11">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card12">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
-								<div class="mejora__carta">
+								<div class="mejora__carta" id="card13">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
 								</div>
 							</div>
 						</div>
+						<div class="popup" id="cardPopup"></div>
 						<div class="mezclar__container">
 							<div class="mezclar__icono"><img src="./imagenes/mezclar__icono.png" alt="" width="150px" /></div>
-							<button class="boton__mezclar">Mezclar</button>
+							<button class="boton__mezclar">
+								<span></span>
+								Mezlcar
+								<span></span>
+							</button>
 						</div>
+					</div>
+					<div class="historial__container">
+						<div class="historial__titulo"><p>Historial de Cartas:</p></div>
+						<div id="pickedCardsContainer"></div>
 					</div>
 				</div>
 			</div>
 		</main>
+		<footer></footer>
 		<script src="./js/app.js"></script>
 		<script type="module" src="./js/main.js"></script>
 	</body>

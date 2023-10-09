@@ -78,3 +78,45 @@ function ScrollToServidores() {
 		behavior: 'smooth',
 	});
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+	const cards = document.querySelectorAll('.mejora__carta');
+	const pickedCardsContainer = document.getElementById('pickedCardsContainer');
+	const ultimaSeleccionCarta = document.getElementById('ultima__seleccion__carta');
+
+	let lastSelectedCard = null;
+
+	// Shuffle the cards
+	const shuffledCards = Array.from(cards).sort(() => Math.random() - 0.5);
+
+	// Add click event listeners to each card
+	cards.forEach((card) => {
+		card.addEventListener('click', () => revealCard(card));
+	});
+
+	function revealCard(card) {
+		const cardId = card.id;
+
+		// Clone the selected card
+		const pickedCard = card.cloneNode(true);
+
+		pickedCardsContainer.insertBefore(pickedCard, pickedCardsContainer.firstChild);
+
+		lastSelectedCard = pickedCard;
+
+		// Display the entire last selected card in ultima__seleccion__carta
+		ultimaSeleccionCarta.innerHTML = ''; // Clear previous content
+		if (lastSelectedCard) {
+			const lastSelectedCardClone = lastSelectedCard.cloneNode(true);
+			ultimaSeleccionCarta.appendChild(lastSelectedCardClone);
+		}
+
+		// Remove the selected card from the pool
+		card.style.display = 'none';
+
+		// Check if all cards are picked
+		if (document.querySelectorAll('.mejora__carta:visible').length === 0) {
+			alert('All cards have been picked!');
+		}
+	}
+});
