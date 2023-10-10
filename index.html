@@ -125,7 +125,7 @@
 				<div class="buscar__boton"><button onclick="elegirCartaRandom()">Buscar Servidor</button></div>
 				<div class="reiniciar"><button onclick="reiniciarSorteo()">Reiniciar</button></div>
 			</div>
-			<div class="cartas__seccion">
+			<div class="cartas__seccion" id="tp__cartas">
 				<div class="vidrio"></div>
 				<div class="g1"></div>
 				<div class="g2"></div>
@@ -143,7 +143,7 @@
 					<div class="cartas__imagen"><img src="./imagenes/Cartas__muestra.png" alt="" width="400px" /></div>
 				</div>
 			</div>
-			<div class="divisor__cartas">
+			<div class="divisor__cartas" onclick="">
 				<img src="./imagenes/flecha abajo.png" alt="" width="170px" />
 			</div>
 			<div class="mejoras__seleccion__container">
@@ -155,7 +155,8 @@
 							<div class="ultima__seleccion"><p>Ultima Carta Seleccionada</p></div>
 							<div id="ultima__seleccion__carta"></div>
 						</div>
-						<div class="container__total">
+
+						<div class="container__total" id="tp__cartas__flecha">
 							<div class="container__superior">
 								<div class="mejora__carta" id="card1">
 									<img src="./imagenes/cartas.png" alt="" width="135px" />
@@ -204,8 +205,8 @@
 						</div>
 						<div class="popup" id="cardPopup"></div>
 						<div class="mezclar__container">
-							<div class="mezclar__icono"><img src="./imagenes/mezclar__icono.png" alt="" width="150px" /></div>
-							<button class="boton__mezclar">
+							<div class="mezclar__icono"><img src="./imagenes/mezclar__icono.png" alt="" width="180px" /></div>
+							<button class="boton__mezclar" id="shuffleButton">
 								<span></span>
 								Mezlcar
 								<span></span>

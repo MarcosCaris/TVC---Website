@@ -78,45 +78,90 @@ function ScrollToServidores() {
 		behavior: 'smooth',
 	});
 }
-
 document.addEventListener('DOMContentLoaded', function () {
-	const cards = document.querySelectorAll('.mejora__carta');
-	const pickedCardsContainer = document.getElementById('pickedCardsContainer');
-	const ultimaSeleccionCarta = document.getElementById('ultima__seleccion__carta');
+	const cartas = document.querySelectorAll('.mejora__carta');
+	const contenedorCartasSeleccionadas = document.getElementById('pickedCardsContainer');
+	const contenedorUltimaSeleccion = document.getElementById('ultima__seleccion__carta');
+	const botonMezclar = document.getElementById('shuffleButton');
 
-	let lastSelectedCard = null;
+	let ultimaCartaSeleccionada = null;
+	let cartasRestantes = Array.from(cartas);
 
-	// Shuffle the cards
-	const shuffledCards = Array.from(cards).sort(() => Math.random() - 0.5);
+	// Mezclar y distribuir las cartas inicialmente
+	mezclarCartas();
 
-	// Add click event listeners to each card
-	cards.forEach((card) => {
-		card.addEventListener('click', () => revealCard(card));
+	// Agregar reconocedor de eventos de click a cada carta
+	cartas.forEach((carta) => {
+		carta.addEventListener('click', () => revelarCarta(carta));
 	});
 
-	function revealCard(card) {
-		const cardId = card.id;
+	// Agregar reconocedor de eventos de clic al botón de mezclar
+	botonMezclar.addEventListener('click', mezclarCartasRestantes);
 
-		// Clone the selected card
-		const pickedCard = card.cloneNode(true);
+	function revelarCarta(carta) {
+		// Clonar el div de la carta seleccionada
+		const cartaSeleccionada = carta.cloneNode(true);
 
-		pickedCardsContainer.insertBefore(pickedCard, pickedCardsContainer.firstChild);
+		// Mostrar la carta clonada en el contenedor de cartas seleccionadas
+		contenedorCartasSeleccionadas.insertBefore(cartaSeleccionada, contenedorCartasSeleccionadas.firstChild);
 
-		lastSelectedCard = pickedCard;
+		// Actualizar la última carta seleccionada
+		ultimaCartaSeleccionada = cartaSeleccionada;
 
-		// Display the entire last selected card in ultima__seleccion__carta
-		ultimaSeleccionCarta.innerHTML = ''; // Clear previous content
-		if (lastSelectedCard) {
-			const lastSelectedCardClone = lastSelectedCard.cloneNode(true);
-			ultimaSeleccionCarta.appendChild(lastSelectedCardClone);
+		// Mostrar toda la última carta seleccionada en el contenedor de última selección
+		contenedorUltimaSeleccion.innerHTML = ''; // Limpiar contenido anterior
+		if (ultimaCartaSeleccionada) {
+			const ultimaCartaSeleccionadaClon = ultimaCartaSeleccionada.cloneNode(true);
+			contenedorUltimaSeleccion.appendChild(ultimaCartaSeleccionadaClon);
 		}
 
-		// Remove the selected card from the pool
-		card.style.display = 'none';
+		// Quitar la carta seleccionada del grupo restante
+		cartasRestantes = cartasRestantes.filter((c) => c !== carta);
+		carta.parentElement.removeChild(carta);
+	}
 
-		// Check if all cards are picked
-		if (document.querySelectorAll('.mejora__carta:visible').length === 0) {
-			alert('All cards have been picked!');
-		}
+	function mezclarCartasRestantes() {
+		// Mezclar solo las cartas restantes
+		const cartasRestantesMezcladas = cartasRestantes.sort(() => Math.random() - 0.5);
+
+		// Distribuir las cartas restantes mezcladas entre los contenedores, con un máximo de 5 cartas cada uno
+		const contenedores = document.querySelectorAll('.container__superior, .container__inferior, .container__final');
+		contenedores.forEach((contenedor, index) => {
+			contenedor.innerHTML = ''; // Limpiar contenido anterior
+			const cartasEnContenedor = cartasRestantesMezcladas.slice(index * 5, (index + 1) * 5);
+			cartasEnContenedor.forEach((carta) => {
+				contenedor.appendChild(carta);
+			});
+		});
+	}
+
+	function mezclarCartas() {
+		// Mezclar todas las cartas inicialmente
+		const cartasMezcladas = Array.from(cartas).sort(() => Math.random() - 0.5);
+
+		// Distribuir las cartas mezcladas entre los contenedores, con un máximo de 5 cartas cada uno
+		const contenedores = document.querySelectorAll('.container__superior, .container__inferior, .container__final');
+		contenedores.forEach((contenedor, index) => {
+			contenedor.innerHTML = ''; // Limpiar contenido anterior
+			const cartasEnContenedor = cartasMezcladas.slice(index * 5, (index + 1) * 5);
+			cartasEnContenedor.forEach((carta) => {
+				contenedor.appendChild(carta);
+			});
+		});
+
+		// Actualizar las cartas restantes después de la mezcla inicial
+		cartasRestantes = Array.from(cartas);
 	}
 });
+function ScrollToCartas() {
+	const targetSection = document.getElementById('tp__cartas');
+	const sectionStart = targetSection.offsetTop;
+
+	// Adjust the scroll position to be a little higher, e.g., subtracting 20 pixels
+	const scrollPosition = sectionStart - 150;
+
+	window.scrollTo({
+		top: scrollPosition,
+		behavior: 'smooth',
+	});
+}
