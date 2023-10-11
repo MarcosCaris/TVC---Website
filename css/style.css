@@ -20,7 +20,7 @@ header {
 
 .navbar {
 	width: 100%;
-	height: 8.5vh;
+	height: 8vh;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -74,23 +74,34 @@ header {
 }
 .positions p {
 	cursor: pointer;
+	transition: font-size 0.2s ease;
+}
+.positions p:hover {
+	font-size: 2vh;
+	transition: font-size 0.2s ease;
 }
 .stream {
 	width: 15vh;
 }
 .button__stream {
+	display: block;
 	border: 3px solid white;
 	border-radius: 3px;
-	height: 4.4vh;
-	width: 12vh;
-	background-color: rgba(255, 255, 255, 0.301);
+	height: 4vh;
+	width: 10vh;
+	padding-top: 0.8vh;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.192);
 	margin-top: 1.4vh;
-}
-.button__stream a {
-	text-decoration: none;
 	color: white;
+	text-decoration: none;
 	font-family: 'Vinila Test', sans-serif;
 	font-weight: bold;
+}
+.button__stream:hover {
+	background-color: rgba(255, 255, 255, 0.89);
+	color: rgb(243, 0, 0);
+	font-weight: 900;
 }
 
 .main__container {
@@ -245,6 +256,17 @@ header {
 	z-index: -2;
 	top: 20vh;
 	right: 5vh;
+}
+.cartas__bk {
+	font-size: 50vh;
+	font-weight: bolder;
+	color: #31282700;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: rgba(153, 153, 153, 0.253);
+	font-family: 'Vinila Test', sans-serif;
+	position: absolute;
+	z-index: -2;
+	top: 35vh;
 }
 .deph__rectangle {
 	position: absolute;
@@ -440,7 +462,7 @@ header {
 	font-size: 2vh;
 }
 .cartas__seccion {
-	height: 95vh;
+	height: 90vh;
 	display: flex;
 	flex-direction: row;
 }
@@ -468,7 +490,8 @@ header {
 	margin-right: 12vh;
 }
 .cartas__imagen {
-	margin-left: 25vh;
+	margin-left: 3vh;
+	margin-top: 4vh;
 	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 .cartas__texto h3 {
@@ -491,6 +514,7 @@ header {
 	transform: translateY(0);
 }
 #container3D {
+	margin-top: 5vh;
 	height: 70vh;
 	width: 100%;
 	cursor: pointer;
@@ -517,7 +541,7 @@ header {
 	height: 30%;
 	border-radius: 100%;
 	mix-blend-mode: hard-light;
-	left: calc(28% - 20% / 2);
+	left: calc(25% - 20% / 2);
 	top: 225vh;
 	filter: blur(190px);
 	z-index: -10;
@@ -527,7 +551,7 @@ header {
 	position: absolute;
 	top: 279vh;
 	width: 100%;
-	height: 15vh;
+	height: 12vh;
 	background-color: #312827;
 	background-position: 0vh 0vh;
 	background-size: cover;
@@ -547,13 +571,12 @@ header {
 .mejoras__seleccion__container {
 	display: flex;
 	flex-direction: column;
-	height: 170vh;
+	height: 160vh;
 	z-index: -10;
 	background-repeat: no-repeat;
-	background: linear-gradient(135deg, rgba(238, 103, 24, 0.349), rgba(255, 255, 255, 0));
+	background: linear-gradient(135deg, rgba(223, 102, 32, 0.233), rgba(255, 255, 255, 0));
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .titulo__mejoras {
 	color: aliceblue;
@@ -567,6 +590,7 @@ header {
 	background-color: rgba(240, 248, 255, 0);
 	border-radius: 4px;
 	z-index: 10000;
+	margin-top: 7vh;
 }
 .seleccion__subcontainer {
 	height: 90%;
@@ -576,13 +600,14 @@ header {
 }
 .subtitulo__mejoras {
 	height: 2%;
+	margin-top: 2vh;
 	color: rgba(240, 248, 255, 0.671);
 	font-family: 'Vinila Test', sans-serif;
 	font-size: 2.5vh;
 	width: 100%;
 	align-items: center;
 	text-align: center;
-	margin-bottom: 5vh;
+	margin-bottom: 2vh;
 }
 .seleccion__completa {
 	width: 100%;
@@ -595,9 +620,9 @@ header {
 	margin-bottom: 5vh;
 }
 .container__total {
-	height: 95%;
-	width: 65%;
-	border: 3px solid rgb(231, 143, 42);
+	height: 73vh;
+	width: 58%;
+	border: 1px solid rgb(182, 182, 182);
 	border-style: dashed;
 	border-radius: 10px;
 	padding: 2vh;
@@ -632,18 +657,35 @@ header {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	height: 65%;
+	height: 60%;
 	width: 16.5%;
 	flex-direction: column;
+	cursor: url('../imagenes/cursor__lupa.png'), auto;
+}
+.lupa__seleccion {
+	position: absolute;
+	top: 47vh;
+	left: 24vh;
+	z-index: 2000;
+}
+.lupa__seleccion img {
+	width: 12vh;
 }
 .mezclar__container {
-	width: 16.5%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
-	height: 30%;
-	width: 16.5%;
+	height: 47%;
+	width: 16%;
 	flex-direction: column;
+	border: 2px #ff8902 solid;
+	border-radius: 20px;
+	color: rgb(253, 253, 252);
+	font-family: 'Vinila Test', sans-serif;
+	font-size: 1em;
+}
+.mezclar__container p {
+	height: 20%;
 }
 .ultima__seleccion {
 	color: aliceblue;
@@ -651,96 +693,14 @@ header {
 	font-size: 2vh;
 }
 #ultima__seleccion__carta {
-	width: 17vh;
-	border: solid 2px rgba(255, 255, 255, 0.507);
+	width: 19vh;
+	border: solid 2px rgba(255, 255, 255, 0.712);
 	height: 270px;
 	border-radius: 12px;
 	border-style: dashed;
 	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 	backdrop-filter: blur(1px);
 	-webkit-backdrop-filter: blur(1px);
-}
-.boton__mezclar {
-	width: 15vh;
-	height: 5vh;
-}
-
-.boton__mezclar {
-	font: inherit;
-	background: hsl(34, 82%, 42%);
-	border: 0.1em solid hsl(34, 60%, 43%);
-	border-radius: 10px;
-	cursor: pointer;
-	transition: background-color 250ms;
-	color: rgb(253, 253, 252);
-	font-family: 'Vinila Test', sans-serif;
-	font-weight: 600;
-	width: 20vh;
-	position: relative;
-	isolation: isolate;
-	overflow: hidden;
-}
-
-.boton__mezclar:hover,
-.boton__mezclar:focus-visible {
-	background: hsl(0, 0%, 100%);
-	color: rgb(206, 106, 0);
-}
-
-.boton__mezclar > span {
-	position: absolute;
-	z-index: -1;
-	width: 33.333%;
-	height: 100%;
-
-	background: transparent;
-	opacity: 0.5;
-}
-
-.boton__mezclar > :first-child {
-	left: 0;
-	top: 0;
-}
-
-.boton__mezclar > :last-child {
-	right: 0;
-	top: 0;
-}
-
-.boton__mezclar::before {
-	content: '';
-	position: absolute;
-	z-index: -1;
-	background: hsl(24, 79%, 15%);
-	/* background: hotpink; */
-	width: 10%;
-	aspect-ratio: 1;
-	border-radius: 50%;
-	inset: 0;
-	margin: auto;
-	opacity: 0;
-
-	transition: transform 1000ms 200ms, opacity 200ms;
-}
-
-.boton__mezclar:active::before {
-	transform: scale(20);
-	opacity: 1;
-
-	transition: transform 1000ms, opacity 500ms;
-}
-
-.boton__mezclar:has(:first-child:active)::before {
-	margin-left: 0;
-}
-
-.boton__mezclar:has(:last-child:active)::before {
-	margin-right: 0;
-}
-
-.boton__mezclar:has(:first-child:active)::before,
-.boton__mezclar:has(:last-child:active)::before {
-	transition: transform 500ms, opacity 250ms;
 }
 .popup {
 	display: none;
@@ -755,7 +715,7 @@ header {
 }
 .historial__container {
 	width: 100%;
-	height: 40vh;
+	height: 65vh;
 	display: flex;
 	flex-direction: column;
 	align-items: start;
@@ -772,22 +732,201 @@ header {
 }
 #pickedCardsContainer {
 	height: 90%;
-	max-width: 95%;
+	max-width: 93%;
 	display: flex;
 	flex-direction: row;
-	overflow: auto;
-	justify-content: space-evenly;
+	justify-content: center; /* Center the content horizontally */
 	align-items: center;
 	margin-left: 10vh;
+	margin-right: 10vh; /* Add margin-right to create space on the right */
+	overflow-x: auto; /* Enable horizontal scrolling if needed */
 }
 footer {
-	height: 35vh;
+	height: 36vh;
+	width: 100%;
+	background-color: rgba(14, 14, 14, 0.315);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	margin: 0;
+	padding: 20px;
+	overflow: hidden;
+}
+.mejora__carta {
+	cursor: pointer;
+}
+.container__total img {
+	transition: width 0.35s ease;
+}
+.container__total img:hover {
+	width: 15vh;
+	box-shadow: 0 0 10px rgba(33, 250, 149, 0.404);
+	border-radius: 12px;
+
+	transition: width 0.35s ease;
+}
+.mejora__carta img {
+	width: 11.5vh;
+}
+.footer__texto__container {
+	color: rgba(253, 253, 252, 0.671);
+	font-family: 'Vinila Test', sans-serif;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 60%;
+	text-align: center;
+}
+.footer__derechos {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 2.5vh;
+	height: 50%;
+	font-weight: 700;
+}
+.footer__contacto {
+	font-size: 2.1vh;
+	padding-left: 13vh;
+	width: 50%;
+	height: 67%;
+	display: flex;
+	text-align: right;
+	justify-content: space-evenly;
+	flex-direction: column;
+	line-height: 3vh;
+	color: rgba(253, 253, 252, 0.466);
+}
+/* Add this to your existing CSS */
+.container__total .big-card {
+	transform: scale(4); /* You can adjust the scale value to make it larger */
+	transition: transform 0.5s ease; /* You can adjust the transition duration and timing function */
+}
+#pickedCardsContainer .invisible__carta__post {
+	margin-left: 9vh;
+	width: 20vh;
+}
+#pickedCardsContainer .invisible__carta__post img {
 	width: 100%;
 }
-#pickedCardsContainer .mejora__carta {
-	margin-right: 10vh;
+.invisible__carta {
+	display: none;
 }
-#ultima__seleccion__carta .mejora__carta img {
+#ultima__seleccion__carta .invisible__carta__post img {
 	width: 100%;
 	height: 100%;
+	cursor: pointer;
+}
+.invisible__carta__post {
+	display: block;
+}
+/* Variables */
+:root {
+	--fuschia: #ff8902;
+	--button-bg: var(--fuschia);
+}
+
+/* Boton Mezclar Styles */
+.boton__mezclar {
+	font-family: 'Vinila Test', sans-serif;
+	display: inline-block;
+	font-size: 1.16em;
+	padding: 1em 2em;
+	font-weight: 600;
+	margin-top: 4vh;
+	margin-bottom: 60px;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--button-bg);
+	color: #fff;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+	box-shadow: 0 2px 25px rgba(255, 136, 0, 0.5);
+}
+
+.boton__mezclar:focus {
+	outline: 0;
+}
+
+.boton__mezclar:before,
+.boton__mezclar:after {
+	position: absolute;
+	content: '';
+	display: block;
+	width: 140%;
+	height: 100%;
+	left: -20%;
+	z-index: -1000;
+	transition: all ease-in-out 0.5s;
+	background-repeat: no-repeat;
+}
+
+.boton__mezclar:before {
+	display: none;
+	top: -75%;
+	background-image: radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, transparent 20%, var(--button-bg) 20%, transparent 30%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, transparent 10%, var(--button-bg) 15%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%);
+	background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.boton__mezclar:after {
+	display: none;
+	bottom: -75%;
+	background-image: radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, transparent 10%, var(--button-bg) 15%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%);
+	background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.boton__mezclar:active {
+	transform: scale(0.9);
+	background-color: darken(var(--button-bg), 5%);
+	box-shadow: 0 2px 25px rgba(255, 145, 0, 0.2);
+}
+
+.boton__mezclar.animate:before {
+	display: block;
+	animation: topBubbles ease-in-out 0.75s forwards;
+}
+
+.boton__mezclar.animate:after {
+	display: block;
+	animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+
+/* Keyframes */
+@keyframes topBubbles {
+	0% {
+		background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+	}
+	50% {
+		background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+	}
+	100% {
+		background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+		background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+	}
+}
+
+@keyframes bottomBubbles {
+	0% {
+		background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+	}
+	50% {
+		background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+	}
+	100% {
+		background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 60%, 105% 10%;
+	}
 }

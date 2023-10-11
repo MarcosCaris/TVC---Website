@@ -52,13 +52,14 @@ function reiniciarSorteo() {
 	});
 }
 
-let observador = new IntersectionObserver((entries) => {
+let observador = new IntersectionObserver((entries, observer) => {
 	entries.forEach((entry) => {
 		console.log(entry);
 		if (entry.isIntersecting) {
 			entry.target.classList.add('mostrar');
-		} else {
-			entry.target.classList.remove('mostrar');
+
+			// Disconnect the observer once the element is visible
+			observer.unobserve(entry.target);
 		}
 	});
 });
@@ -80,11 +81,12 @@ function ScrollToServidores() {
 }
 document.addEventListener('DOMContentLoaded', function () {
 	const cartas = document.querySelectorAll('.mejora__carta');
+	const cartasInvisibles = document.querySelectorAll('.invisible__carta');
 	const contenedorCartasSeleccionadas = document.getElementById('pickedCardsContainer');
 	const contenedorUltimaSeleccion = document.getElementById('ultima__seleccion__carta');
 	const botonMezclar = document.getElementById('shuffleButton');
 
-	let ultimaCartaSeleccionada = null;
+	let ultimasCartasSeleccionadas = [];
 	let cartasRestantes = Array.from(cartas);
 
 	// Mezclar y distribuir las cartas inicialmente
@@ -99,60 +101,100 @@ document.addEventListener('DOMContentLoaded', function () {
 	botonMezclar.addEventListener('click', mezclarCartasRestantes);
 
 	function revelarCarta(carta) {
-		// Clonar el div de la carta seleccionada
-		const cartaSeleccionada = carta.cloneNode(true);
-
-		// Mostrar la carta clonada en el contenedor de cartas seleccionadas
-		contenedorCartasSeleccionadas.insertBefore(cartaSeleccionada, contenedorCartasSeleccionadas.firstChild);
-
-		// Actualizar la última carta seleccionada
-		ultimaCartaSeleccionada = cartaSeleccionada;
-
-		// Mostrar toda la última carta seleccionada en el contenedor de última selección
-		contenedorUltimaSeleccion.innerHTML = ''; // Limpiar contenido anterior
-		if (ultimaCartaSeleccionada) {
-			const ultimaCartaSeleccionadaClon = ultimaCartaSeleccionada.cloneNode(true);
-			contenedorUltimaSeleccion.appendChild(ultimaCartaSeleccionadaClon);
-		}
-
 		// Quitar la carta seleccionada del grupo restante
 		cartasRestantes = cartasRestantes.filter((c) => c !== carta);
+
+		// Obtener el ID de la carta invisible correspondiente
+		const idCartaInvisible = carta.getAttribute('data-invisible-card');
+
+		// Ocultar todas las cartas invisibles inicialmente
+		cartasInvisibles.forEach((cartaInvisible) => {
+			cartaInvisible.classList.add('invisible__carta');
+		});
+
+		// Mostrar la carta invisible correspondiente
+		const cartaInvisible = document.getElementById(idCartaInvisible);
+		cartaInvisible.classList.remove('invisible__carta');
+
+		// Agregar la carta invisible a la lista de las más recientes
+		ultimasCartasSeleccionadas.unshift(cartaInvisible);
+
+		// Limitar la lista a un cierto número (opcional)
+		const maxVisibleCards = 6; // Puedes ajustar esto según tus necesidades
+		ultimasCartasSeleccionadas = ultimasCartasSeleccionadas.slice(0, maxVisibleCards);
+
+		cartaInvisible.classList.add('invisible__carta__post');
+
+		// Mostrar las cartas invisibles seleccionadas en el contenedor
+		contenedorCartasSeleccionadas.innerHTML = ''; // Limpiar contenido anterior
+		ultimasCartasSeleccionadas.forEach((cartaVisible, index) => {
+			const cartaVisibleClon = cartaVisible.cloneNode(true);
+			contenedorCartasSeleccionadas.appendChild(cartaVisibleClon);
+		});
+
+		// Mover la carta invisible al contenedor de última selección
+		contenedorUltimaSeleccion.innerHTML = ''; // Limpiar contenido anterior
+		contenedorUltimaSeleccion.appendChild(cartaInvisible);
+
+		// Quitar la carta seleccionada del DOM (eliminarla del pool)
 		carta.parentElement.removeChild(carta);
 	}
-
 	function mezclarCartasRestantes() {
 		// Mezclar solo las cartas restantes
 		const cartasRestantesMezcladas = cartasRestantes.sort(() => Math.random() - 0.5);
 
 		// Distribuir las cartas restantes mezcladas entre los contenedores, con un máximo de 5 cartas cada uno
 		const contenedores = document.querySelectorAll('.container__superior, .container__inferior, .container__final');
-		contenedores.forEach((contenedor, index) => {
+
+		// Distribuir las cartas de forma aleatoria entre los contenedores
+		const cartasPorContenedor = cartasRestantesMezcladas.length / contenedores.length;
+		for (let i = 0; i < contenedores.length; i++) {
+			const contenedor = contenedores[i];
 			contenedor.innerHTML = ''; // Limpiar contenido anterior
-			const cartasEnContenedor = cartasRestantesMezcladas.slice(index * 5, (index + 1) * 5);
+
+			// Obtener un subconjunto aleatorio de cartas para este contenedor
+			const cartasEnContenedor = cartasRestantesMezcladas.slice(i * cartasPorContenedor, (i + 1) * cartasPorContenedor);
+
+			// Agregar las cartas al contenedor
 			cartasEnContenedor.forEach((carta) => {
 				contenedor.appendChild(carta);
 			});
+		}
+
+		// Ocultar todas las cartas invisibles
+		cartasInvisibles.forEach((cartaInvisible) => {
+			cartaInvisible.classList.add('invisible__carta');
 		});
 	}
-
 	function mezclarCartas() {
 		// Mezclar todas las cartas inicialmente
 		const cartasMezcladas = Array.from(cartas).sort(() => Math.random() - 0.5);
 
 		// Distribuir las cartas mezcladas entre los contenedores, con un máximo de 5 cartas cada uno
 		const contenedores = document.querySelectorAll('.container__superior, .container__inferior, .container__final');
-		contenedores.forEach((contenedor, index) => {
+
+		// Distribuir las cartas de forma aleatoria entre los contenedores
+		const cartasPorContenedor = cartasMezcladas.length / contenedores.length;
+		for (let i = 0; i < contenedores.length; i++) {
+			const contenedor = contenedores[i];
 			contenedor.innerHTML = ''; // Limpiar contenido anterior
-			const cartasEnContenedor = cartasMezcladas.slice(index * 5, (index + 1) * 5);
+
+			// Obtener un subconjunto aleatorio de cartas para este contenedor
+			const cartasEnContenedor = cartasMezcladas.slice(i * cartasPorContenedor, (i + 1) * cartasPorContenedor);
+
+			// Agregar las cartas al contenedor
 			cartasEnContenedor.forEach((carta) => {
 				contenedor.appendChild(carta);
 			});
-		});
+		}
 
-		// Actualizar las cartas restantes después de la mezcla inicial
-		cartasRestantes = Array.from(cartas);
+		// Ocultar todas las cartas invisibles inicialmente
+		cartasInvisibles.forEach((cartaInvisible) => {
+			cartaInvisible.classList.add('invisible__carta');
+		});
 	}
 });
+
 function ScrollToCartas() {
 	const targetSection = document.getElementById('tp__cartas');
 	const sectionStart = targetSection.offsetTop;
@@ -164,4 +206,20 @@ function ScrollToCartas() {
 		top: scrollPosition,
 		behavior: 'smooth',
 	});
+}
+var animateButton = function (e) {
+	e.preventDefault;
+	//reset animation
+	e.target.classList.remove('animate');
+
+	e.target.classList.add('animate');
+	setTimeout(function () {
+		e.target.classList.remove('animate');
+	}, 700);
+};
+
+var bubblyButtons = document.getElementsByClassName('boton__mezclar');
+
+for (var i = 0; i < bubblyButtons.length; i++) {
+	bubblyButtons[i].addEventListener('click', animateButton, false);
 }

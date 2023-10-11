@@ -5,8 +5,9 @@
 		<link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="shortcut icon" href="./imagenes/logobk.png" />
+		<link rel="shortcut icon" href="./imagenes/icono__tvc.png" />
 		<link href="https://fonts.cdnfonts.com/css/vinila-test" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 		<link rel="stylesheet" href="./css/style.css" />
 		<title>TVC | Tryhard Valorant Cup</title>
 	</head>
@@ -38,7 +39,7 @@
 						<p onclick="ScrollToCartas()">Cartas</p>
 					</div>
 					<div class="stream">
-						<button class="button__stream"><a href="https://www.twitch.tv/jisusrun">STREAM</a></button>
+						<a class="button__stream" href="https://www.twitch.tv/jisusrun" target="_blank">STREAM</a>
 					</div>
 				</div>
 			</nav>
@@ -88,7 +89,7 @@
 				</div>
 			</div>
 			<div class="">
-				<div class="servidores__titulo">
+				<div class="servidores__titulo oculto">
 					<h3>Seleccion de Servidores</h3>
 					<p>
 						A continuacion seleccione los servidores que desea utilizar en el sorteo de servidores y luego presione el boton de "Buscar Servidor".
@@ -131,81 +132,122 @@
 				<div class="g2"></div>
 				<div class="g3"></div>
 				<div class="cartas__izquierda__poderes">
-					<div id="container3D"></div>
+					<div id="container3D" class="oculto"></div>
 				</div>
 				<div class="cartas__derecha__poderes">
-					<div class="cartas__texto">
+					<div class="cartas__texto oculto">
 						<h3>Sistema de Cartas</h3>
 						<p>
 							Contamos con cartas interactivas que pueden cambiar el curso de las partidas. Poseen un uso especial y son seleccionadas debajo al azar.
 						</p>
 					</div>
-					<div class="cartas__imagen"><img src="./imagenes/Cartas__muestra.png" alt="" width="400px" /></div>
+					<div class="cartas__imagen oculto"><img src="./imagenes/cartas__muestra.jpeg" alt="" width="600px" /></div>
 				</div>
 			</div>
-			<div class="divisor__cartas" onclick="">
-				<img src="./imagenes/flecha abajo.png" alt="" width="170px" />
+			<div class="divisor__cartas" onclick="ScrollDown()">
+				<img src="./imagenes/flecha abajo.png" alt="" width="140px" />
 			</div>
 			<div class="mejoras__seleccion__container">
-				<div class="titulo__mejoras"><h3>Seleccion de Cartas</h3></div>
+				<div class="titulo__mejoras oculto"><h3>Seleccion de Cartas</h3></div>
 				<div class="seleccion__subcontainer">
-					<div class="subtitulo__mejoras"><p>Seleccione una carta</p></div>
+					<div class="subtitulo__mejoras oculto"><p>Seleccione una carta</p></div>
 					<div class="seleccion__completa">
 						<div class="ultima__carta">
+							<div class="lupa__seleccion"><img src="./imagenes/cursor__lupa.png" alt="" /></div>
 							<div class="ultima__seleccion"><p>Ultima Carta Seleccionada</p></div>
 							<div id="ultima__seleccion__carta"></div>
 						</div>
-
-						<div class="container__total" id="tp__cartas__flecha">
+						<div class="container__total" id="tp__flecha">
 							<div class="container__superior">
-								<div class="mejora__carta" id="card1">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card1" data-invisible-card="invisibleCard1">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
-								<div class="mejora__carta" id="card2">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card2" data-invisible-card="invisibleCard2">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
-								<div class="mejora__carta" id="card3">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card3" data-invisible-card="invisibleCard3">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
-								<div class="mejora__carta" id="card4">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card4" data-invisible-card="invisibleCard4">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
-								<div class="mejora__carta" id="card5">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card5" data-invisible-card="invisibleCard5">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
 							</div>
 							<div class="container__inferior">
-								<div class="mejora__carta" id="card6">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card6" data-invisible-card="invisibleCard6">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
-								<div class="mejora__carta" id="card7">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card7" data-invisible-card="invisibleCard7">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
-								<div class="mejora__carta" id="card8">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
-								</div>
-								<div class="mejora__carta" id="card9">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
-								</div>
-								<div class="mejora__carta" id="card10">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card8" data-invisible-card="invisibleCard8">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
 							</div>
 							<div class="container__final">
-								<div class="mejora__carta" id="card11">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card9" data-invisible-card="invisibleCard9">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
-								<div class="mejora__carta" id="card12">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card10" data-invisible-card="invisibleCard10">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
-								<div class="mejora__carta" id="card13">
-									<img src="./imagenes/cartas.png" alt="" width="135px" />
+								<div class="mejora__carta" id="card11" data-invisible-card="invisibleCard11">
+									<img src="./imagenes/cartas.png" alt="" />
+								</div>
+								<div class="mejora__carta" id="card12" data-invisible-card="invisibleCard12">
+									<img src="./imagenes/cartas.png" alt="" />
+								</div>
+								<div class="mejora__carta" id="card13" data-invisible-card="invisibleCard13">
+									<img src="./imagenes/cartas.png" alt="" />
 								</div>
 							</div>
+							<div class="invisible__carta" id="invisibleCard1">
+								<img src="./imagenes/carta__invisible1.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard2">
+								<img src="./imagenes/carta__invisible2.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard3">
+								<img src="./imagenes/carta__invisible3.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard4">
+								<img src="./imagenes/carta__invisible4.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard5">
+								<img src="./imagenes/carta__invisible5.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard6">
+								<img src="./imagenes/carta__invisible6.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard7">
+								<img src="./imagenes/carta__invisible7.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard8">
+								<img src="./imagenes/carta__invisible8.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard9">
+								<img src="./imagenes/carta__invisible9.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard10">
+								<img src="./imagenes/carta__invisible10.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard11">
+								<img src="./imagenes/carta__invisible11.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard12">
+								<img src="./imagenes/carta__invisible12.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard13">
+								<img src="./imagenes/carta__invisible13.png" alt="" />
+							</div>
 						</div>
+						<p class="cartas__bk">TVC</p>
 						<div class="popup" id="cardPopup"></div>
 						<div class="mezclar__container">
 							<div class="mezclar__icono"><img src="./imagenes/mezclar__icono.png" alt="" width="180px" /></div>
+							<div><p>Presione para Mezclar las cartas.</p></div>
 							<button class="boton__mezclar" id="shuffleButton">
 								<span></span>
 								Mezlcar
@@ -213,14 +255,28 @@
 							</button>
 						</div>
 					</div>
-					<div class="historial__container">
-						<div class="historial__titulo"><p>Historial de Cartas:</p></div>
-						<div id="pickedCardsContainer"></div>
-					</div>
+				</div>
+				<div class="historial__container">
+					<div class="historial__titulo oculto"><p>Historial de Cartas (Ultimas 6 Cartas)</p></div>
+					<div id="pickedCardsContainer"></div>
 				</div>
 			</div>
 		</main>
-		<footer></footer>
+		<footer>
+			<div class="footer__logo">
+				<img src="./imagenes/logobk.png" alt="" width="500" />
+			</div>
+			<div class="footer__texto__container">
+				<div class="footer__derechos">
+					<div><p>Todos los Derechos Reservados a TVC</p></div>
+					<div><p>@Copyright 2023-2024</p></div>
+				</div>
+				<div class="footer__contacto">
+					<div><p>Por cualquier duda contactar con la organizacion o a traves del discord del torneo.</p></div>
+					<div><p>Gracias por participar en TVC.</p></div>
+				</div>
+			</div>
+		</footer>
 		<script src="./js/app.js"></script>
 		<script type="module" src="./js/main.js"></script>
 	</body>
