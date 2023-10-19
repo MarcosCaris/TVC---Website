@@ -1,3 +1,19 @@
+document.addEventListener('DOMContentLoaded', () => {
+	const preloader = document.querySelector('.preloader-container');
+	const logo = document.querySelector('.logo');
+
+	window.addEventListener('load', () => {
+		// Simulate a delay (you can replace this with your actual loading logic)
+		setTimeout(() => {
+			preloader.style.opacity = 0; // Fade out the preloader
+			preloader.style.pointerEvents = 'none'; // Make sure it doesn't block clicks
+		}, 1300); // Change this value based on your content loading time
+
+		// Animate the logo color change
+		logo.style.filter = 'grayscale(0%)'; // Change to the final color
+	});
+});
+
 // Keep track of selected cards
 let selectedCards = [];
 

@@ -439,14 +439,76 @@ header {
 	width: 28vh;
 	height: 5vh;
 	background-color: rgb(202, 75, 25);
-	color: aliceblue;
-	font-family: 'Vinila Test', sans-serif;
 	font-size: 1.8vh;
-	font-weight: 500;
 	border-radius: 3px;
+	font-family: 'Vinila Test', sans-serif;
+	display: inline-block;
+	font-weight: 600;
+	margin-top: 4vh;
+	-webkit-appearance: none;
+	appearance: none;
+	color: #fff;
 	border: none;
 	cursor: pointer;
+	position: relative;
+	transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+	box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);
 }
+
+.buscar__boton button:focus {
+	outline: 0;
+}
+
+.buscar__boton button:before,
+.buscar__boton button:after {
+	position: absolute;
+	content: '';
+	display: block;
+	width: 140%;
+	height: 100%;
+	left: -20%;
+	z-index: -1000;
+	transition: all ease-in-out 0.5s;
+	background-repeat: no-repeat;
+}
+
+.buscar__boton button:before {
+	display: none;
+	top: -75%;
+	background-image: radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, transparent 20%, var(--button-bg) 20%, transparent 30%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, transparent 10%, var(--button-bg) 15%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%);
+	background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.buscar__boton button:after {
+	display: none;
+	bottom: -75%;
+	background-image: radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, transparent 10%, var(--button-bg) 15%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%);
+	background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.buscar__boton button:active {
+	transform: scale(0.9);
+	background-color: darken(var(--button-bg), 5%);
+	box-shadow: 0 2px 25px rgba(255, 94, 0, 0.2);
+}
+
+.testing.animate:before {
+	display: block;
+	animation: topBubbles ease-in-out 0.75s forwards;
+}
+
+.testing.animate:after {
+	display: block;
+	animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+
 .buscar__texto {
 	width: 25%;
 	color: rgb(212, 212, 212);
@@ -515,7 +577,7 @@ header {
 }
 #container3D {
 	margin-top: 5vh;
-	height: 70vh;
+	height: 100vh;
 	width: 100%;
 	cursor: pointer;
 	z-index: 20000;
@@ -536,12 +598,12 @@ header {
 }
 .g2 {
 	position: absolute;
-	background: radial-gradient(rgb(190, 139, 255) 0, rgb(190, 139, 255) 50%) no-repeat;
+	background: radial-gradient(rgb(255, 139, 45) 0, rgb(255, 183, 116) 50%) no-repeat;
 	width: 25%;
 	height: 30%;
 	border-radius: 100%;
 	mix-blend-mode: hard-light;
-	left: calc(25% - 20% / 2);
+	left: calc(26% - 20% / 2);
 	top: 225vh;
 	filter: blur(190px);
 	z-index: -10;
@@ -574,7 +636,7 @@ header {
 	height: 160vh;
 	z-index: -10;
 	background-repeat: no-repeat;
-	background: linear-gradient(135deg, rgba(223, 102, 32, 0.233), rgba(255, 255, 255, 0));
+	background: linear-gradient(135deg, rgba(218, 95, 23, 0.438), rgba(255, 255, 255, 0));
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 }
@@ -660,16 +722,6 @@ header {
 	height: 60%;
 	width: 16.5%;
 	flex-direction: column;
-	cursor: url('../imagenes/cursor__lupa.png'), auto;
-}
-.lupa__seleccion {
-	position: absolute;
-	top: 47vh;
-	left: 24vh;
-	z-index: 2000;
-}
-.lupa__seleccion img {
-	width: 12vh;
 }
 .mezclar__container {
 	display: flex;
@@ -693,7 +745,7 @@ header {
 	font-size: 2vh;
 }
 #ultima__seleccion__carta {
-	width: 19vh;
+	width: 21.5vh;
 	border: solid 2px rgba(255, 255, 255, 0.712);
 	height: 270px;
 	border-radius: 12px;
@@ -721,6 +773,10 @@ header {
 	align-items: start;
 	justify-content: space-evenly;
 	background-color: #0202012a;
+}
+.historial__container img {
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .historial__titulo {
 	color: rgb(253, 253, 252);
@@ -758,10 +814,11 @@ footer {
 }
 .container__total img {
 	transition: width 0.35s ease;
+	border-radius: 12px;
 }
 .container__total img:hover {
 	width: 15vh;
-	box-shadow: 0 0 10px rgba(33, 250, 149, 0.404);
+	box-shadow: 0 0 10px rgba(250, 120, 33, 0.61);
 	border-radius: 12px;
 
 	transition: width 0.35s ease;
@@ -809,6 +866,7 @@ footer {
 #pickedCardsContainer .invisible__carta__post {
 	margin-left: 9vh;
 	width: 20vh;
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.212);
 }
 #pickedCardsContainer .invisible__carta__post img {
 	width: 100%;
@@ -820,6 +878,7 @@ footer {
 	width: 100%;
 	height: 100%;
 	cursor: pointer;
+	border-radius: 12px;
 }
 .invisible__carta__post {
 	display: block;
@@ -834,7 +893,7 @@ footer {
 .boton__mezclar {
 	font-family: 'Vinila Test', sans-serif;
 	display: inline-block;
-	font-size: 1.16em;
+	font-size: 1em;
 	padding: 1em 2em;
 	font-weight: 600;
 	margin-top: 4vh;
@@ -861,7 +920,7 @@ footer {
 	content: '';
 	display: block;
 	width: 140%;
-	height: 100%;
+	height: 80%;
 	left: -20%;
 	z-index: -1000;
 	transition: all ease-in-out 0.5s;
@@ -905,6 +964,147 @@ footer {
 	animation: bottomBubbles ease-in-out 0.75s forwards;
 }
 
+.buscar__boton {
+	display: flex;
+	height: 10vh;
+	align-items: center;
+	justify-content: center;
+}
+.reiniciar {
+	display: flex;
+	height: 10vh;
+	align-items: center;
+	justify-content: center;
+}
+
+.reiniciar button {
+	width: 28vh;
+	height: 5vh;
+	background-color: rgb(202, 75, 25);
+	font-size: 1.8vh;
+	border-radius: 3px;
+	font-family: 'Vinila Test', sans-serif;
+	display: inline-block;
+	font-weight: 600;
+	margin-top: 4vh;
+	-webkit-appearance: none;
+	appearance: none;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+	box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);
+}
+
+.reiniciar button:focus {
+	outline: 0;
+}
+
+.reiniciar button:before,
+.reiniciar button:after {
+	position: absolute;
+	content: '';
+	display: block;
+	width: 140%;
+	height: 100%;
+	left: -20%;
+	z-index: -1000;
+	transition: all ease-in-out 0.5s;
+	background-repeat: no-repeat;
+}
+
+.reiniciar button:before {
+	display: none;
+	top: -75%;
+	background-image: radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, transparent 20%, var(--button-bg) 20%, transparent 30%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, transparent 10%, var(--button-bg) 15%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%);
+	background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.reiniciar button:after {
+	display: none;
+	bottom: -75%;
+	background-image: radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, transparent 10%, var(--button-bg) 15%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%);
+	background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.reiniciar button:active {
+	transform: scale(0.9);
+	background-color: darken(var(--button-bg), 5%);
+	box-shadow: 0 2px 25px rgba(255, 94, 0, 0.2);
+}
+
+.buscar__boton button {
+	width: 28vh;
+	height: 5vh;
+	background-color: rgb(202, 75, 25);
+	font-size: 1.8vh;
+	border-radius: 3px;
+	font-family: 'Vinila Test', sans-serif;
+	display: inline-block;
+	font-weight: 600;
+	margin-top: 4vh;
+	-webkit-appearance: none;
+	appearance: none;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+	box-shadow: 0 2px 25px rgba(255, 72, 0, 0.5);
+}
+
+.buscar__boton button:focus {
+	outline: 0;
+}
+
+.buscar__boton button:before,
+.buscar__boton button:after {
+	position: absolute;
+	content: '';
+	display: block;
+	width: 140%;
+	height: 100%;
+	left: -20%;
+	z-index: -1000;
+	transition: all ease-in-out 0.5s;
+	background-repeat: no-repeat;
+}
+
+.buscar__boton button:before {
+	display: none;
+	top: -75%;
+	background-image: radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, transparent 20%, var(--button-bg) 20%, transparent 30%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, transparent 10%, var(--button-bg) 15%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%);
+	background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.buscar__boton button:after {
+	display: none;
+	bottom: -75%;
+	background-image: radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, transparent 10%, var(--button-bg) 15%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%), radial-gradient(circle, var(--button-bg) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg) 20%, transparent 20%);
+	background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.buscar__boton button:active {
+	transform: scale(0.9);
+	background-color: darken(var(--button-bg), 5%);
+	box-shadow: 0 2px 25px rgba(255, 94, 0, 0.2);
+}
+
 /* Keyframes */
 @keyframes topBubbles {
 	0% {
@@ -929,4 +1129,25 @@ footer {
 	100% {
 		background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 60%, 105% 10%;
 	}
+}
+.preloader-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, rgba(78, 41, 19, 0.726), rgb(26, 11, 4));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 99999;
+	transition: opacity 0.4s ease; /* Adjust transition duration for smoother fade-out */
+}
+
+.logo {
+	filter: grayscale(100%); /* Initial grayscale effect */
+	transition: filter 1.2s ease; /* Transition for smooth color change */
+}
+.logo img {
+	width: 50vh; /* Adjust the size of your logo */
 }

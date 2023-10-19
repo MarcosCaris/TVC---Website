@@ -18,6 +18,8 @@ loader.load(
 	`model/${objToRender}/scene.gltf`,
 	function (gltf) {
 		object = gltf.scene;
+		object.updateMatrix(); // Update the object's matrix
+
 		scene.add(object);
 	},
 	function (xhr) {
@@ -30,12 +32,12 @@ loader.load(
 	}
 );
 
-const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for the transparent background
+const renderer = new THREE.WebGLRenderer({ alpha: true, exposure: 1.0 }); //Alpha: true allows for the transparent background
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 document.getElementById('container3D').appendChild(renderer.domElement);
 
-camera.position.z = objToRender === 'card' ? 470 : 500;
+camera.position.z = objToRender === 'card' ? 60 : 500;
 
 if (objToRender === 'card') {
 	controls = new OrbitControls(camera, renderer.domElement);
@@ -56,8 +58,14 @@ if (objToRender === 'card') {
 		renderer.render(scene, camera);
 	});
 }
-const fixedWidth = 900;
-const fixedHeight = 700;
+
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ReinhardToneMapping;
+const fixedWidth = 800;
+const fixedHeight = 600;
+
+const ambientLight = new THREE.AmbientLight(0x333333, objToRender === 'card' ? 5 : 1);
+scene.add(ambientLight);
 
 // Set the initial size of the renderer
 renderer.setSize(fixedWidth, fixedHeight);
@@ -65,6 +73,8 @@ renderer.setSize(fixedWidth, fixedHeight);
 // Update the camera's aspect ratio based on the fixed size
 camera.aspect = fixedWidth / fixedHeight;
 camera.updateProjectionMatrix();
+
+let exposure = 1.0; // Initial exposure value
 
 function animate() {
 	requestAnimationFrame(animate);
@@ -74,6 +84,7 @@ function animate() {
 			object.rotation.y += 0.004; // You can adjust the rotation speed here
 		}
 	}
+	renderer.toneMappingExposure = exposure;
 	// Ensure that controls are updated
 	if (controls) {
 		controls.update();

@@ -12,6 +12,9 @@
 		<title>TVC | Tryhard Valorant Cup</title>
 	</head>
 	<body>
+		<div class="preloader-container">
+			<div class="logo"><img src="./imagenes/logobk.png" alt="Logo" /></div>
+		</div>
 		<header>
 			<nav class="nav">
 				<div class="navbar">
@@ -123,7 +126,7 @@
 			</div>
 			<div class="texto__seleccion">La region que se vuelva color naranja sera el ganador.</div>
 			<div class="buscar__container">
-				<div class="buscar__boton"><button onclick="elegirCartaRandom()">Buscar Servidor</button></div>
+				<div class="buscar__boton"><button onclick="elegirCartaRandom()" class="testing">Buscar Servidor</button></div>
 				<div class="reiniciar"><button onclick="reiniciarSorteo()">Reiniciar</button></div>
 			</div>
 			<div class="cartas__seccion" id="tp__cartas">
@@ -153,7 +156,6 @@
 					<div class="subtitulo__mejoras oculto"><p>Seleccione una carta</p></div>
 					<div class="seleccion__completa">
 						<div class="ultima__carta">
-							<div class="lupa__seleccion"><img src="./imagenes/cursor__lupa.png" alt="" /></div>
 							<div class="ultima__seleccion"><p>Ultima Carta Seleccionada</p></div>
 							<div id="ultima__seleccion__carta"></div>
 						</div>
@@ -185,14 +187,14 @@
 								<div class="mejora__carta" id="card8" data-invisible-card="invisibleCard8">
 									<img src="./imagenes/cartas.png" alt="" />
 								</div>
-							</div>
-							<div class="container__final">
 								<div class="mejora__carta" id="card9" data-invisible-card="invisibleCard9">
 									<img src="./imagenes/cartas.png" alt="" />
 								</div>
 								<div class="mejora__carta" id="card10" data-invisible-card="invisibleCard10">
 									<img src="./imagenes/cartas.png" alt="" />
 								</div>
+							</div>
+							<div class="container__final">
 								<div class="mejora__carta" id="card11" data-invisible-card="invisibleCard11">
 									<img src="./imagenes/cartas.png" alt="" />
 								</div>
@@ -200,6 +202,12 @@
 									<img src="./imagenes/cartas.png" alt="" />
 								</div>
 								<div class="mejora__carta" id="card13" data-invisible-card="invisibleCard13">
+									<img src="./imagenes/cartas.png" alt="" />
+								</div>
+								<div class="mejora__carta" id="card14" data-invisible-card="invisibleCard14">
+									<img src="./imagenes/cartas.png" alt="" />
+								</div>
+								<div class="mejora__carta" id="card15" data-invisible-card="invisibleCard15">
 									<img src="./imagenes/cartas.png" alt="" />
 								</div>
 							</div>
@@ -241,6 +249,12 @@
 							</div>
 							<div class="invisible__carta" id="invisibleCard13">
 								<img src="./imagenes/carta__invisible13.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard14">
+								<img src="./imagenes/carta__invisible14.png" alt="" />
+							</div>
+							<div class="invisible__carta" id="invisibleCard15">
+								<img src="./imagenes/carta__invisible15.png" alt="" />
 							</div>
 						</div>
 						<p class="cartas__bk">TVC</p>
