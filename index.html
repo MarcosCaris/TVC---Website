@@ -151,13 +151,37 @@
 				<img src="./imagenes/flecha abajo.png" alt="" width="140px" />
 			</div>
 			<div class="mejoras__seleccion__container">
-				<div class="titulo__mejoras oculto"><h3>Seleccion de Cartas</h3></div>
+				<div class="seleccion__titular">
+					<div class="seleccion__titular__texto">
+						<div class="titulo__mejoras oculto"><h3>Cartas Especiales</h3></div>
+						<div class="subtitulo__mejoras oculto"><p>Seleccione una carta a continuacion</p></div>
+					</div>
+				</div>
 				<div class="seleccion__subcontainer">
-					<div class="subtitulo__mejoras oculto"><p>Seleccione una carta</p></div>
 					<div class="seleccion__completa">
-						<div class="ultima__carta">
-							<div class="ultima__seleccion"><p>Ultima Carta Seleccionada</p></div>
-							<div id="ultima__seleccion__carta"></div>
+						<div class="ultima__carta__izq">
+							<div class="ultima__carta">
+								<div class="ultima__seleccion"><p>Ultima Carta Seleccionada</p></div>
+								<div id="ultima__seleccion__carta"></div>
+							</div>
+							<div class="seleccion__titular__botones">
+								<div class="mezclar__container">
+									<div class="boton__mezclar__container">
+										<button class="boton__mezclar" id="shuffleButton">
+											<span></span>
+											Mezlcar
+											<span></span>
+										</button>
+									</div>
+									<div class="boton__reiniciar__container">
+										<button class="boton__reiniciar__cartas" id="restarButton">
+											<span></span>
+											Reiniciar
+											<span></span>
+										</button>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="container__total" id="tp__flecha">
 							<div class="container__superior">
@@ -259,15 +283,6 @@
 						</div>
 						<p class="cartas__bk">TVC</p>
 						<div class="popup" id="cardPopup"></div>
-						<div class="mezclar__container">
-							<div class="mezclar__icono"><img src="./imagenes/mezclar__icono.png" alt="" width="180px" /></div>
-							<div><p>Presione para Mezclar las cartas.</p></div>
-							<button class="boton__mezclar" id="shuffleButton">
-								<span></span>
-								Mezlcar
-								<span></span>
-							</button>
-						</div>
 					</div>
 				</div>
 				<div class="historial__container">

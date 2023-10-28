@@ -224,17 +224,23 @@ function ScrollToCartas() {
 	});
 }
 var animateButton = function (e) {
-	e.preventDefault;
-	//reset animation
-	e.target.classList.remove('animate');
+	e.preventDefault();
+	var button = e.target;
 
-	e.target.classList.add('animate');
+	// reset animation for all buttons
+	var allButtons = document.querySelectorAll('.boton__mezclar, .boton__reiniciar__cartas');
+	allButtons.forEach(function (btn) {
+		btn.classList.remove('animate');
+	});
+
+	// add and remove animation for the clicked button
+	button.classList.add('animate');
 	setTimeout(function () {
-		e.target.classList.remove('animate');
+		button.classList.remove('animate');
 	}, 700);
 };
 
-var bubblyButtons = document.getElementsByClassName('boton__mezclar');
+var bubblyButtons = document.querySelectorAll('.boton__mezclar, .boton__reiniciar__cartas');
 
 for (var i = 0; i < bubblyButtons.length; i++) {
 	bubblyButtons[i].addEventListener('click', animateButton, false);

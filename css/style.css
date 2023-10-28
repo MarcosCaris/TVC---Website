@@ -266,7 +266,8 @@ header {
 	font-family: 'Vinila Test', sans-serif;
 	position: absolute;
 	z-index: -2;
-	top: 35vh;
+	top: 48vh;
+	right: 27vh;
 }
 .deph__rectangle {
 	position: absolute;
@@ -633,7 +634,7 @@ header {
 .mejoras__seleccion__container {
 	display: flex;
 	flex-direction: column;
-	height: 160vh;
+	height: 150vh;
 	z-index: -10;
 	background-repeat: no-repeat;
 	background: linear-gradient(135deg, rgba(218, 95, 23, 0.438), rgba(255, 255, 255, 0));
@@ -652,10 +653,10 @@ header {
 	background-color: rgba(240, 248, 255, 0);
 	border-radius: 4px;
 	z-index: 10000;
-	margin-top: 7vh;
+	margin-top: 2vh;
 }
 .seleccion__subcontainer {
-	height: 90%;
+	height: 55%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -670,10 +671,11 @@ header {
 	align-items: center;
 	text-align: center;
 	margin-bottom: 2vh;
+	padding-left: 0.5vh;
 }
 .seleccion__completa {
 	width: 100%;
-	height: 80%;
+	height: 100%;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -719,7 +721,7 @@ header {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	height: 60%;
+	height: 90%;
 	width: 16.5%;
 	flex-direction: column;
 }
@@ -727,27 +729,52 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 47%;
-	width: 16%;
-	flex-direction: column;
-	border: 2px #ff8902 solid;
+	height: 100%;
+	width: 40vh;
+	flex-direction: row;
+	padding-top: 3vh;
 	border-radius: 20px;
 	color: rgb(253, 253, 252);
 	font-family: 'Vinila Test', sans-serif;
-	font-size: 1em;
+	margin-top: 3vh;
+}
+.boton__mezclar__container {
+	width: 13.5vh;
+	height: 3vh;
+	margin-right: 8vh;
+}
+.boton__reiniciar__container {
+	width: 14vh;
+	height: 3vh;
+}
+.ultima__carta__izq {
+	height: 73vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 .mezclar__container p {
 	height: 20%;
 }
+.mezclar__icono img {
+	padding-right: 2px;
+}
+
+.boton__mezclar__container img {
+	margin-right: 10px;
+}
 .ultima__seleccion {
-	color: aliceblue;
+	color: rgb(240, 248, 255);
 	font-family: 'Vinila Test', sans-serif;
-	font-size: 2vh;
+	font-size: 2.5vh;
+	width: 50vh;
+	text-align: center;
+	margin-bottom: 5vh;
 }
 #ultima__seleccion__carta {
-	width: 21.5vh;
+	width: 36vh;
 	border: solid 2px rgba(255, 255, 255, 0.712);
-	height: 270px;
+	height: 50vh;
 	border-radius: 12px;
 	border-style: dashed;
 	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -767,7 +794,7 @@ header {
 }
 .historial__container {
 	width: 100%;
-	height: 65vh;
+	height: 50vh;
 	display: flex;
 	flex-direction: column;
 	align-items: start;
@@ -887,22 +914,23 @@ footer {
 :root {
 	--fuschia: #ff8902;
 	--button-bg: var(--fuschia);
+
+	--fuschia2: rgb(123, 88, 250);
+	--button-bg2: var(--fuschia2);
 }
 
 /* Boton Mezclar Styles */
 .boton__mezclar {
 	font-family: 'Vinila Test', sans-serif;
 	display: inline-block;
-	font-size: 1em;
+	font-size: 1.2em;
 	padding: 1em 2em;
 	font-weight: 600;
-	margin-top: 4vh;
-	margin-bottom: 60px;
 	-webkit-appearance: none;
 	appearance: none;
 	background-color: var(--button-bg);
 	color: #fff;
-	border-radius: 4px;
+	border-radius: 6px;
 	border: none;
 	cursor: pointer;
 	position: relative;
@@ -964,6 +992,79 @@ footer {
 	animation: bottomBubbles ease-in-out 0.75s forwards;
 }
 
+.boton__reiniciar__cartas {
+	font-family: 'Vinila Test', sans-serif;
+	display: inline-block;
+	font-size: 1.2em;
+	padding: 1em 2em;
+	font-weight: 600;
+	margin-right: 10vh;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--button-bg2);
+	color: #fff;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+	box-shadow: 0 2px 25px rgba(110, 70, 255, 0.637);
+}
+
+.boton__reiniciar__cartas:focus {
+	outline: 0;
+}
+
+.boton__reiniciar__cartas:before,
+.boton__reiniciar__cartas:after {
+	position: absolute;
+	content: '';
+	display: block;
+	width: 140%;
+	height: 80%;
+	left: -20%;
+	z-index: -1000;
+	transition: all ease-in-out 0.5s;
+	background-repeat: no-repeat;
+}
+
+.boton__reiniciar__cartas:before {
+	display: none;
+	top: -75%;
+	background-image: radial-gradient(circle, var(--button-bg2) 20%, transparent 20%),
+		radial-gradient(circle, transparent 20%, var(--button-bg2) 20%, transparent 30%), radial-gradient(circle, var(--button-bg2) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg2) 20%, transparent 20%), radial-gradient(circle, transparent 10%, var(--button-bg2) 15%, transparent 20%),
+		radial-gradient(circle, var(--button-bg2) 20%, transparent 20%), radial-gradient(circle, var(--button-bg2) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg2) 20%, transparent 20%), radial-gradient(circle, var(--button-bg2) 20%, transparent 20%);
+	background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.boton__reiniciar__cartas:after {
+	display: none;
+	bottom: -75%;
+	background-image: radial-gradient(circle, var(--button-bg2) 20%, transparent 20%), radial-gradient(circle, var(--button-bg2) 20%, transparent 20%),
+		radial-gradient(circle, transparent 10%, var(--button-bg2) 15%, transparent 20%), radial-gradient(circle, var(--button-bg2) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg2) 20%, transparent 20%), radial-gradient(circle, var(--button-bg2) 20%, transparent 20%),
+		radial-gradient(circle, var(--button-bg2) 20%, transparent 20%);
+	background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.boton__reiniciar__cartas:active {
+	transform: scale(0.9);
+	background-color: darken(var(--button-bg2), 5%);
+	box-shadow: 0 2px 25px rgba(114, 38, 255, 0.459);
+}
+
+.boton__reiniciar__cartas.animate:before {
+	display: block;
+	animation: topBubbles ease-in-out 0.75s forwards;
+}
+
+.boton__reiniciar__cartas.animate:after {
+	display: block;
+	animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+
 .buscar__boton {
 	display: flex;
 	height: 10vh;
@@ -986,7 +1087,6 @@ footer {
 	font-family: 'Vinila Test', sans-serif;
 	display: inline-block;
 	font-weight: 600;
-	margin-top: 4vh;
 	-webkit-appearance: none;
 	appearance: none;
 	color: #fff;
@@ -1050,7 +1150,6 @@ footer {
 	font-family: 'Vinila Test', sans-serif;
 	display: inline-block;
 	font-weight: 600;
-	margin-top: 4vh;
 	-webkit-appearance: none;
 	appearance: none;
 	color: #fff;
@@ -1150,4 +1249,28 @@ footer {
 }
 .logo img {
 	width: 50vh; /* Adjust the size of your logo */
+}
+.seleccion__titular {
+	width: 100%;
+	margin-top: 2vh;
+	height: 30vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+}
+.seleccion__titular__botones {
+	display: flex;
+	height: 20vh;
+	width: 30vh;
+	align-items: center;
+	justify-content: space-around;
+	margin-right: 3vh;
+}
+.seleccion__titular__texto {
+	text-align: center;
+}
+.seleccion__titular__botones {
+	height: 100%;
+	width: 30vh;
 }
