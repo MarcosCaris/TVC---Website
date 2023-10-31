@@ -1350,7 +1350,7 @@ footer {
 	margin-right: 5vh;
 }
 
-@media (min-width: 1200px) and (max-width: 1400px) {
+@media (min-width: 1200px) and (max-width: 1500px) {
 	.jett__image {
 		overflow: hidden;
 		height: 65vh;
