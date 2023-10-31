@@ -211,6 +211,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 
+function ScrollToReglas() {
+	const targetSection3 = document.getElementById('tp__reglas');
+	const sectionStart3 = targetSection3.offsetTop;
+
+	// Adjust the scroll position to be a little higher, e.g., subtracting 20 pixels
+	const scrollPosition3 = sectionStart3 - 325;
+
+	window.scrollTo({
+		top: scrollPosition3,
+		behavior: 'smooth',
+	});
+}
+
 function ScrollToCartas() {
 	const targetSection = document.getElementById('tp__cartas');
 	const sectionStart = targetSection.offsetTop;

@@ -18,28 +18,29 @@
 		<header>
 			<nav class="nav">
 				<div class="navbar">
-					<img src="./imagenes/logo1.png" alt="" width="65vh" />
-					<img src="./imagenes/logo2.png" alt="" width="65vh" />
-					<img src="./imagenes/logo3.png" alt="" width="65vh" />
-					<img src="./imagenes/logo4.png" alt="" width="65vh" />
-					<img src="./imagenes/logo5.png" alt="" width="65vh" />
-					<img src="./imagenes/logo6.png" alt="" width="65vh" />
-					<img src="./imagenes/logo7.png" alt="" width="65vh" />
-					<img src="./imagenes/logo8.png" alt="" width="65vh" />
+					<img src="./imagenes/logo1.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo2.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo3.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo4.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo5.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo6.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo7.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo8.png" alt="" width="65vh" class="logo__navbar" />
 					<img src="./imagenes/logobkblanc.png" alt="" width="230vh" class="tvc_icon" />
-					<img src="./imagenes/logo9.png" alt="" width="65vh" />
-					<img src="./imagenes/logo10.png" alt="" width="65vh" />
-					<img src="./imagenes/logo7.png" alt="" width="65vh" />
-					<img src="./imagenes/logo6.png" alt="" width="65vh" />
-					<img src="./imagenes/logo4.png" alt="" width="65vh" />
-					<img src="./imagenes/logo3.png" alt="" width="65vh" />
-					<img src="./imagenes/logo2.png" alt="" width="65vh" />
-					<img src="./imagenes/logo1.png" alt="" width="65vh" />
+					<img src="./imagenes/logo9.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo10.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo7.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo6.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo4.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo3.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo2.png" alt="" width="65vh" class="logo__navbar" />
+					<img src="./imagenes/logo1.png" alt="" width="65vh" class="logo__navbar" />
 				</div>
 				<div class="reposition">
 					<div class="positions">
 						<p onclick="ScrollToServidores()">Servidores</p>
 						<p onclick="ScrollToCartas()">Cartas</p>
+						<p onclick="ScrollToReglas()">Reglas</p>
 					</div>
 					<div class="stream">
 						<a class="button__stream" href="https://www.twitch.tv/jisusrun" target="_blank">STREAM</a>
@@ -59,9 +60,7 @@
 					<div class="cartas__izquierda">
 						<div class="servidores__carta">
 							<h3 class="carta__main__titulo">Seleccion del Servidor de las Partidas</h3>
-							<p class="carta__main__explicacion__servidores">
-								Los servidores seran seleccionados debajo de forma aleatoria entre los equipos enfrentados.
-							</p>
+							<p class="carta__main__explicacion__servidores">Los servidores seran seleccionados debajo de forma aleatoria entre los equipos.</p>
 							<button class="carta__main__boton__servidor" onclick="ScrollToServidores()">
 								Tu servidor <img src="./imagenes/flecha.png" alt="" width="30px" />
 							</button>
@@ -86,8 +85,8 @@
 				<div class="texto__rectangulo">
 					<h2>Una Experiencia Diferente</h2>
 					<p>
-						Nuestro torneo busca ser algo distinto para la valorant, dirigido a streamers y sus comunidades, presentamos un torneo interactivo y
-						flexible que mediante el uso de cartas especiales.
+						Nuestro torneo busca ser algo distinto para Valorant, dirigido a streamers y sus comunidades, presentamos un torneo interactivo y flexible
+						que mediante el uso de cartas especiales.
 					</p>
 				</div>
 			</div>
@@ -147,9 +146,7 @@
 					<div class="cartas__imagen oculto"><img src="./imagenes/cartas__muestra.jpeg" alt="" width="600px" /></div>
 				</div>
 			</div>
-			<div class="divisor__cartas" onclick="ScrollDown()">
-				<img src="./imagenes/flecha abajo.png" alt="" width="140px" />
-			</div>
+			<div class="divisor__cartas" onclick="ScrollDown()"></div>
 			<div class="mejoras__seleccion__container">
 				<div class="seleccion__titular">
 					<div class="seleccion__titular__texto">
@@ -290,6 +287,50 @@
 					<div id="pickedCardsContainer"></div>
 				</div>
 			</div>
+			<!--<div class="ReglasContainer">
+				<div class="reglas--titulo"><h3>Reglas Del Torneo</h3></div>
+				<div class="reglas--section" id="tp__reglas">
+					<div class="reglas--izquierda">
+						<ul>
+							<li>
+								<p>
+									Antes de cada partida se va a realizar un sorteo del servidor en que se jugara, esto debido a que hay equipos de diferentes países.
+								</p>
+							</li>
+							<li><p>Cada equipo tendrá que entregar nombre y logo de equipo.</p></li>
+							<li>
+								<p>Cada equipo debe contar con 6 a 7 jugadores esto por si alguno no se puede presentar el día del partido contar con suplente.</p>
+							</li>
+							<li><p>Tener el valorant tracker en público con el fin de evitar smurfs y verificar sus rangos.</p></li>
+							<li><p>No realizar stream sniping.</p></li>
+							<li><p>Todos los que realicen stream colocar mínimo 1 minuto de delay, esto con el fin de evitar el stream sniping.</p></li>
+						</ul>
+					</div>
+					<div id="knifeContainer3D" class="oculto"></div>
+					<div class="relgas--derecha">
+						<ul>
+							<li><p>Rango máximo permitido será ascendente (máximo un ascendente por equipo).</p></li>
+							<li>
+								<p>
+									Antes de cada partida se sorteara 2 cartas por equipo las cuales contendrán beneficios adicionales que se podrán usar pidiendo un
+									time out en partida. O cartas que tendrán un efecto inmediato antes de iniciar la partida.
+								</p>
+							</li>
+							<li><p>Se contará con 3 time out por equipo, deben ser solicitados.</p></li>
+							<li>
+								<p>
+									Estar puntuales para sus partidas, esto con el fin de no atrasar los partido, estar con 10 minutos de antelacion o serán
+									descalificados.
+								</p>
+							</li>
+							<li><p>Cero toxicidad hacia los demás streamers, organización o cualquier miembro de la comunidad.</p></li>
+							<li><p>Unirse todos al discord y pedir rol de su equipo al organizador o staff.</p></li>
+						</ul>
+					</div>
+				</div>
+				<div class="knife__bk"><img src="./imagenes/Knife__bk2.png" alt="" /></div>
+				<div class="vidrio__reglas"></div>
+			</div>-->
 		</main>
 		<footer>
 			<div class="footer__logo">

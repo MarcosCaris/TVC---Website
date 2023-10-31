@@ -2,65 +2,69 @@ import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 
-// Set up the scene
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+var scene2 = new THREE.Scene();
+var camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+var camera2 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-let object;
+let cardObject;
+let knifeObject;
 
-let controls;
+let controlsCard;
+let controlsKnife;
 let controlsActive = false;
 let objToRender = 'card';
 const loader = new GLTFLoader();
 
-// Load the 3D model
+// Load the card 3D model
 loader.load(
 	`model/${objToRender}/scene.gltf`,
 	function (gltf) {
-		object = gltf.scene;
-		object.updateMatrix(); // Update the object's matrix
+		cardObject = gltf.scene;
+		cardObject.updateMatrix(); // Update the object's matrix
 
-		scene.add(object);
+		scene.add(cardObject);
 	},
 	function (xhr) {
-		//While it is loading, log the progress
+		// While it is loading, log the progress
 		console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
 	},
 	function (error) {
-		//If there is an error, log it
+		// If there is an error, log it
 		console.error(error);
 	}
 );
 
-const renderer = new THREE.WebGLRenderer({ alpha: true, exposure: 1.0 }); //Alpha: true allows for the transparent background
-renderer.setSize(window.innerWidth, window.innerHeight);
+const renderer1 = new THREE.WebGLRenderer({ alpha: true, exposure: 1.0 }); // Alpha: true allows for the transparent background
+renderer1.setSize(window.innerWidth, window.innerHeight);
 
-document.getElementById('container3D').appendChild(renderer.domElement);
+document.getElementById('container3D').appendChild(renderer1.domElement);
 
-camera.position.z = objToRender === 'card' ? 60 : 500;
+camera1.position.z = objToRender === 'card' ? 60 : 500;
 
 if (objToRender === 'card') {
-	controls = new OrbitControls(camera, renderer.domElement);
-	controls.enableZoom = false;
-	controls.enablePan = false;
+	controlsCard = new OrbitControls(camera1, renderer1.domElement);
+	controlsCard.enableZoom = false;
+	controlsCard.enablePan = false;
+
 	// Detect when controls are being used
-	controls.addEventListener('start', function () {
+	controlsCard.addEventListener('start', function () {
 		controlsActive = true;
 	});
 
 	// Detect when controls stop being used
-	controls.addEventListener('end', function () {
+	controlsCard.addEventListener('end', function () {
 		controlsActive = false;
 	});
 
-	controls.addEventListener('change', function () {
+	controlsCard.addEventListener('change', function () {
 		// Update is required after changes
-		renderer.render(scene, camera);
+		renderer1.render(scene, camera1);
 	});
 }
 
-renderer.outputEncoding = THREE.sRGBEncoding;
-renderer.toneMapping = THREE.ReinhardToneMapping;
+renderer1.outputEncoding = THREE.sRGBEncoding;
+renderer1.toneMapping = THREE.ReinhardToneMapping;
 const fixedWidth = 800;
 const fixedHeight = 600;
 
@@ -68,29 +72,119 @@ const ambientLight = new THREE.AmbientLight(0x333333, objToRender === 'card' ? 5
 scene.add(ambientLight);
 
 // Set the initial size of the renderer
-renderer.setSize(fixedWidth, fixedHeight);
+renderer1.setSize(fixedWidth, fixedHeight);
 
 // Update the camera's aspect ratio based on the fixed size
-camera.aspect = fixedWidth / fixedHeight;
-camera.updateProjectionMatrix();
+camera1.aspect = fixedWidth / fixedHeight;
+camera1.updateProjectionMatrix();
 
 let exposure = 1.0; // Initial exposure value
 
-function animate() {
-	requestAnimationFrame(animate);
+function animateCard() {
+	requestAnimationFrame(animateCard);
 	if (!controlsActive) {
 		// Rotate the object (adjust the rotation speed as needed)
-		if (object) {
-			object.rotation.y += 0.004; // You can adjust the rotation speed here
+		if (cardObject) {
+			cardObject.rotation.y += 0.004; // You can adjust the rotation speed here
 		}
 	}
-	renderer.toneMappingExposure = exposure;
+	renderer1.toneMappingExposure = exposure;
 	// Ensure that controls are updated
-	if (controls) {
-		controls.update();
+	if (controlsCard) {
+		controlsCard.update();
 	}
 	// Ensure that controls are updated
-	renderer.render(scene, camera);
+	renderer1.render(scene, camera1);
 }
-// Start the animation loop
-animate();
+// Start the animation loop for the card
+animateCard();
+
+// Load the knife 3D model
+let objToRender2 = 'knife';
+loader.load(
+	`model/${objToRender2}/scene.gltf`,
+	function (gltf) {
+		knifeObject = gltf.scene;
+		knifeObject.updateMatrix(); // Update the object's matrix
+
+		scene2.add(knifeObject);
+	},
+	function (xhr) {
+		// While it is loading, log the progress
+		console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+	},
+	function (error) {
+		// If there is an error, log it
+		console.error(error);
+	}
+);
+const renderer2 = new THREE.WebGLRenderer({ alpha: true, exposure: 1.0 }); // Alpha: true allows for the transparent background
+renderer2.setSize(window.innerWidth, window.innerHeight);
+
+document.getElementById('knifeContainer3D').appendChild(renderer2.domElement);
+
+camera2.position.z = objToRender2 === 'knife' ? 60 : 500;
+
+if (objToRender2 === 'knife') {
+	controlsKnife = new OrbitControls(camera2, renderer2.domElement);
+	controlsKnife.enableZoom = false; // Disable zoom
+	controlsKnife.enableRotate = false; // Disable rotation
+	controlsKnife.enablePan = false;
+
+	window.addEventListener('scroll', function () {
+		// Get the scroll position
+		const scrollY = window.scrollY;
+
+		// Map the scroll position to rotation values
+		const rotationY = (scrollY / window.innerHeight) * Math.PI * 2;
+
+		// Apply rotation to the knife object
+		if (knifeObject) {
+			knifeObject.rotation.y = rotationY;
+		}
+
+		// Render the scene
+		renderer2.render(scene2, camera2);
+	});
+}
+
+const ambient = new THREE.SpotLight(0x333333, 25);
+ambient.castShadow = true;
+ambient.position.set(100, 0, 0);
+ambient.shadow.bias = -0.0001;
+ambient.shadow.mapSize.width = 1024 * 4;
+ambient.shadow.mapSize.height = 1024 * 4;
+scene2.add(ambient);
+
+const light_2 = new THREE.DirectionalLight(0xffffff);
+light_2.position.set(20, 0, 10);
+light_2.intensity = 3;
+light_2.castShadow = true;
+scene2.add(light_2);
+
+renderer2.outputEncoding = THREE.sRGBEncoding;
+renderer2.toneMapping = THREE.ReinhardToneMapping;
+const fixedWidth2 = 750;
+const fixedHeight2 = 550;
+
+// Set the initial size of the renderer
+renderer2.setSize(fixedWidth2, fixedHeight2);
+
+// Update the camera's aspect ratio based on the fixed size
+camera2.aspect = fixedWidth2 / fixedHeight2;
+camera2.updateProjectionMatrix();
+
+function animateKnife() {
+	requestAnimationFrame(animateKnife);
+
+	// Ensure that controls are updated
+	if (controlsKnife) {
+		controlsKnife.update();
+	}
+
+	// Ensure that controls are updated
+	renderer2.render(scene2, camera2);
+}
+
+// Start the animation loop for the knife
+animateKnife();
