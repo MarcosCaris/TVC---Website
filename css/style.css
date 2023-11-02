@@ -577,21 +577,27 @@ header {
 	transform: translateY(0);
 }
 .ReglasContainer {
-	height: 90vh;
+	height: 83vh;
 	width: 100%;
 	background-color: #111110;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-image: radial-gradient(#a7a0a01c, #0e0b092f);
+	background-image: linear-gradient(135deg, #2020201c, #0e0b092f);
+	timeline-scope: --listTimeline;
 }
-#knifeContainer3D {
-	height: 60vh;
-	width: 35%;
-	cursor: pointer;
-	z-index: 20000;
+.carnalito__img {
+	position: absolute;
+	left: 10vh;
+	margin-top: 13vh;
+	z-index: 2;
 }
-
+.carnalito__roca {
+	position: absolute;
+	left: 5vh;
+	margin-top: 61vh;
+	z-index: 1;
+}
 #container3D {
 	margin-top: 5vh;
 	height: 100vh;
@@ -840,6 +846,7 @@ header {
 	margin-right: 10vh; /* Add margin-right to create space on the right */
 	overflow-x: auto; /* Enable horizontal scrolling if needed */
 }
+
 footer {
 	height: 36vh;
 	width: 100%;
@@ -851,6 +858,7 @@ footer {
 	margin: 0;
 	padding: 20px;
 	overflow: hidden;
+	z-index: 500;
 }
 .mejora__carta {
 	cursor: pointer;
@@ -1293,63 +1301,123 @@ footer {
 .buscar__boton button {
 	margin-top: 0;
 }
-.knife__bk {
-	position: absolute;
-	margin-top: 24vh;
-}
-.knife__bk img {
-	width: 24svh;
-	left: 93vh;
-	z-index: -1;
-}
-.vidrio__reglas {
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-	backdrop-filter: blur(4px);
-	-webkit-backdrop-filter: blur(10px);
-	position: absolute;
-	height: 57vh;
-	width: 20vh;
-	margin-top: 23vh;
-	border-radius: 10px;
-}
-.reglas--section {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-direction: row;
-}
-.reglas--section ul {
-	list-style-type: none;
-}
-.reglas--izquierda {
-	width: 30%;
-	font-size: 1.17em;
-	font-family: 'Vinila Test', sans-serif;
-	color: white;
-	margin-left: 5vh;
-}
-.reglas--izquierda li {
-	margin-bottom: 4.6vh;
-}
-.relgas--derecha li {
-	margin-bottom: 4.6vh;
-}
+
 .reglas--titulo {
-	height: 15%;
-	font-size: 2.3em;
+	font-size: 1.8em;
+	color: aliceblue;
 	font-family: 'Vinila Test', sans-serif;
-	color: white;
-	margin-top: 8vh;
+	height: 15vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.relgas--derecha {
-	width: 35%;
-	font-size: 1.17em;
-	font-family: 'Vinila Test', sans-serif;
-	color: white;
-	text-align: end;
-	margin-right: 5vh;
+ul {
+	counter-reset: index;
+	padding: 0;
+	max-width: 70vh;
+	overflow-y: scroll;
+	scroll-snap-type: y mandatory;
+	overscroll-behavior-y: contain;
+	height: 60vh;
+	scroll-timeline: --listTimeline block;
 }
 
+/* List element */
+li {
+	counter-increment: index;
+	display: flex;
+	align-items: center;
+	padding: 12px 0;
+	box-sizing: border-box;
+	font-family: 'Vinila Test', sans-serif;
+	color: rgba(255, 255, 255, 0.726);
+	scroll-snap-align: start;
+}
+
+/* Element counter */
+li::before {
+	content: counters(index, '.', decimal-leading-zero);
+	font-size: 1.5rem;
+	text-align: right;
+	font-weight: bold;
+	min-width: 50px;
+	padding-right: 12px;
+	font-variant-numeric: tabular-nums;
+	align-self: flex-start;
+	background-image: linear-gradient(to bottom, rgb(130, 108, 255), orangered);
+	background-attachment: fixed;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/* Element separation */
+li + li {
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.animation {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 100%;
+	background-size: 50px 40px;
+	/* background image on bottom of css for readability */
+}
+
+@supports (animation-timeline: scroll()) {
+	.animation {
+		animation: moveBackground alternate linear;
+		animation-timeline: --listTimeline;
+	}
+}
+
+@keyframes moveBackground {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 0 calc(var(--container-height) / -1);
+	}
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #202020;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #b05e28;
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #7e4119;
+}
+.tvc__logo__reglas {
+	position: absolute;
+	right: 3vh;
+	margin-top: 20vh;
+}
+.tvc__logo__reglas img {
+	width: 60vh;
+	opacity: 7%;
+}
+.containerPlaceHolder {
+	font-size: 2.3em;
+	color: rgba(240, 248, 255, 0.164);
+	font-family: 'Vinila Test', sans-serif;
+	width: 100%;
+	position: relative;
+	font-weight: bold;
+}
 @media (min-width: 1200px) and (max-width: 1500px) {
 	.jett__image {
 		overflow: hidden;

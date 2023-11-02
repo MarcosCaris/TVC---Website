@@ -101,6 +101,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	const contenedorCartasSeleccionadas = document.getElementById('pickedCardsContainer');
 	const contenedorUltimaSeleccion = document.getElementById('ultima__seleccion__carta');
 	const botonMezclar = document.getElementById('shuffleButton');
+	const initialPlaceholderText = 'SELECCIONA UNA CARTA PARA COMENZAR';
+
+	// Add initial text node to the container
+	const placeholderTextNode = document.createTextNode(initialPlaceholderText);
+	contenedorCartasSeleccionadas.appendChild(placeholderTextNode);
+
+	// Add a class to the container
+	contenedorCartasSeleccionadas.classList.add('containerPlaceHolder');
 
 	let ultimasCartasSeleccionadas = [];
 	let cartasRestantes = Array.from(cartas);
@@ -117,6 +125,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	botonMezclar.addEventListener('click', mezclarCartasRestantes);
 
 	function revelarCarta(carta) {
+		contenedorCartasSeleccionadas.innerHTML = '';
+		contenedorCartasSeleccionadas.classList.remove('containerPlaceHolder');
 		// Quitar la carta seleccionada del grupo restante
 		cartasRestantes = cartasRestantes.filter((c) => c !== carta);
 
@@ -216,7 +226,7 @@ function ScrollToReglas() {
 	const sectionStart3 = targetSection3.offsetTop;
 
 	// Adjust the scroll position to be a little higher, e.g., subtracting 20 pixels
-	const scrollPosition3 = sectionStart3 - 325;
+	const scrollPosition3 = sectionStart3 - 280;
 
 	window.scrollTo({
 		top: scrollPosition3,
