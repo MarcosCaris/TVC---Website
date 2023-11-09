@@ -1423,7 +1423,15 @@ li + li {
 	.carnalito__roca {
 		position: absolute;
 		left: 5vh;
-		margin-top: 63vh;
+		margin-top: 62vh;
+		z-index: 1;
+	}
+}
+@media (min-width: 1700px) and (max-width: 1850px) {
+	.carnalito__roca {
+		position: absolute;
+		left: 5vh;
+		margin-top: 62vh;
 		z-index: 1;
 	}
 }
