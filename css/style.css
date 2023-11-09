@@ -1418,6 +1418,16 @@ li + li {
 	position: relative;
 	font-weight: bold;
 }
+
+@media (min-width: 1600px) and (max-width: 1700px) {
+	.carnalito__roca {
+		position: absolute;
+		left: 5vh;
+		margin-top: 63vh;
+		z-index: 1;
+	}
+}
+
 @media (min-width: 1200px) and (max-width: 1500px) {
 	.jett__image {
 		overflow: hidden;
